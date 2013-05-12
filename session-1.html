@@ -1,0 +1,572 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+    <img src="images/ss_logo.png" style="position: absolute; right: 20px; top: 20px; ">
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Agenda</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>History</li>
+        <li>Installation</li>
+        <li>Ruby usage</li>
+        <li>Basic Data Types</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>History</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/title_logo.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Ruby is designed to make programmers happy
+      </q>
+      <div class="author">
+        Yukihiro Matsumoto<br>
+        “Matz”
+      </div>
+    </article>
+  </slide>
+
+
+  <slide>
+    <aside class="note">
+      <section>
+        <ul>
+          <li><a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</a> </li>
+          <li><a href="http://www.ruby-lang.org">http://www.ruby-lang.org</a></li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>What is Ruby?</h2>
+    </hgroup>
+    <article>
+      <h3>Ruby is</h3>
+      <ul>
+        <li>a dynamic</li>
+        <li>reflective</li>
+        <li>general-purpose</li>
+        <li>object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Why Ruby?</h2>
+    </hgroup>
+    <article>
+      <h3>Ruby is</h3>
+      <ul>
+        <li>Object-oriented</li>
+        <li>Huge dev community</li>
+        <li>Rails as a killer app framework</li>
+        <li>Syntactic sugar</li>
+        <li>Expressive</li>
+        <li>Tons of libraries</li>
+      </ul>
+    </article>
+  </slide>
+
+  
+  <slide>
+    <hgroup>
+      <h2>Ruby vs Ruby on Rails</h2>
+    </hgroup>
+    <article>
+      <h3>Ruby on Rails</h3>
+      <ul>
+        <li>Web Framework written in Ruby</li>
+      </ul>
+      <h3>Ruby</h3>
+      <ul>
+        <li>General purpose language</li>
+        <li>Not just for Web</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Languages History</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/languages_history.png" style="max-width: 1000px">
+    </article>
+  </slide>
+
+
+  <slide>
+    <aside class="note">
+      <section>
+        See:
+        <ul>
+          <li><a href="http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby">http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby</a> </li>
+          <li><a href="http://gunnertech.com/2011/11/ruby-on-rails-history-a-look-back/">http://gunnertech.com/2011/11/ruby-on-rails-history-a-look-back/</a></li>
+        </ul>
+        27 October 1999: Matz and Keiju’s book is published, the first Ruby book
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Ruby History</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>02/24/1993 - Pre-history age. Without code</li>
+        <li>12/21/<span class='red3'>1995</span> - Ruby is in public. V.0.95</li>
+        <li>12/25/1996 - Ruby 1.0 released</li>
+        <li>10/27/1999 - the first Ruby book</li>
+        <li>xx/07/2004 - DHH first released <span class='blue3'>Ruby on Rails</span></li>
+        <li>xx/12/<span class='yellow3'>2005</span> - version 1 of <span class='blue3'>Ruby on Rails</span> was released</li>
+        <li>xx/10/<span class='green3'>2007</span> - bundle/ship RoR w/ OS X Leopard  </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ruby History</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/ruby_history_graph.png" style="max-height: 450px">
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ruby Implementations</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li><a href="http://www.ruby-lang.org" class="gray2">Ruby 1.8, MRI</a></li>
+        <li><a href="http://www.rubyenterpriseedition.com/" class="gray2">Ruby 1.8, EE</a></li>
+        <li><a href="http://www.ruby-lang.org" class="red3">Ruby 1.9, YARV</a></li>
+        <li><a href="http://jruby.org" class="green3">JRuby</a></li>
+        <li><a href="http://rubini.us" class="blue3">Rubinius</a></li>
+        <li><a href="http://macruby.org">MacRuby</a></li>
+        <li><a href="http://maglev.github.io">MagLev</a></li>
+        <li><a href="http://en.wikipedia.org/wiki/IronRuby">IronRuby</a></li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Installation</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>:ruby => *nix</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/ruby_not_only_nix.png" style="max-height: 450px">
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Installing Ruby</h2>
+    </hgroup>
+    <article>
+      <img src="images/ruby_installer.png" style="float: right">
+      <h3>Interpretator</h3>
+      <ul>
+        <li><a href="http://www.ruby-lang.org">http://www.ruby-lang.org</a></li>
+        <li><a href="http://rubyinstaller.org">http://rubyinstaller.org</a></li>
+      </ul>
+      <br>
+      <img src="images/sublime.png" style="float: right; max-width: 100px">
+      <h3>Text editor</h3>
+      <ul>
+        <li><a href="http://www.sublimetext.com">Sublime Text</a></li>
+      </ul>
+      <br>
+      <h3>Command Line</h3>
+    </article>
+  </slide>
+
+  
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Ruby usage</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+  <aside class="note">
+      <section>
+        <a href="http://reference.jumpingmonkey.org/programming_languages/ruby/ruby-one-liners.html">http://reference.jumpingmonkey.org/programming_languages/ruby/ruby-one-liners.html</a>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Using Ruby</h2>
+    </hgroup>
+    <article>
+      <h3>Single command</h3>
+      <pre class="prettyprint shadow" data-lang="javascript">
+ruby –e "&lt;cmd>"
+</pre>
+      <h3>Ruby file</h3>
+      <pre class="prettyprint shadow" data-lang="javascript">
+ruby &lt;script>.rb
+</pre>
+      <h3>Interactive Ruby Shell (IRB)</h3>
+      <pre class="prettyprint shadow" data-lang="javascript">
+irb
+</pre>
+    </article>
+  </slide>
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Basic Data Types</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ruby Documentation</h2>
+    </hgroup>
+    <article>
+      <iframe data-src="http://www.ruby-doc.org"></iframe>
+    </article>
+    <footer>
+      <a href="http://www.ruby-doc.org">http://www.ruby-doc.org</a>
+    </footer>
+  </slide>
+
+
+  <slide>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>show Number</li>
+          <li>show String</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Objects</h2>
+    </hgroup>
+    <article>
+      <h3>Everything is an Object</h3>
+      <h3>Object is instance of a Class</h3>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Variables Naming</h2>
+    </hgroup>
+    <article>
+      <p>Use <span class="green3">snake_case</span> for variables, methods and symbols</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+variable_name = :some_symbol
+
+def some_method
+  ...
+end
+</pre>
+      <p>Use <span class="green3">CamelCase</span> for classes and modules</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+class SomeClass
+  ...
+end
+</pre>
+      <p>Use <span class="green3">SCREAMING_SNAKE_CASE</span> for other constants</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+SOME_CONST = 5
+</pre>
+    <footer>
+      <span style="font-size: 14px">The only real difficulties in programming are cache invalidation and naming things. -- Phil Karlton</span>
+    </footer>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Variables Scope Indication</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint shadow" data-lang="javascript">
+#Global
+<b>$</b>variable
+
+#Class
+<b>@@</b>variable
+
+#Instance
+<b>@</b>variable
+
+#Local
+variable
+</pre>
+  
+    </article>
+  </slide>
+
+
+  <slide>
+    <aside class="note">
+      <section>
+        Integers
+        <ul>
+          <li>1+2 1-4  2**4   x = 4  x += 2</li>
+        </ul>
+        Integers is an Object 
+          <li>123.class</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Numbers</h2>
+    </hgroup>
+    <article>
+      <h3>Integers</h3>
+      <h3>Floating point numbers (floats)</h3>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Strings</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+"Hello"
+
+'Hello'
+
+'Hello' * 5
+
+1 * 5 vs '1'  * 5
+</pre>
+    <p>
+      Escaping
+    </p>
+    <p>
+      String interpolation
+    </p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>array = []</li>
+          <li>array[1]</li>
+          <li>array << "d"</li>
+        </ul>
+        Integers is an Object 
+          <li>123.class</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Arrays</h2>
+    </hgroup>
+    <article>
+      <p>An ordered, integer-indexed collection of objects</p>
+      <p>Objects that can go in array</p>
+      <ul>
+        <li>Numbers</li>
+        <li>String</li>
+        <li>Arrays</li>
+        <li>Mixed types</li>
+      </ul>
+      <p>Methods</p>
+      <ul>
+        <li>Inspect, join, to_s, reverse, uniq!, <<, delete_at, delete, +</li>
+        <li>String#split</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Hashes</h2>
+    </hgroup>
+    <article>
+      <p>An ordered, object-indexed collection of objects (or key-value pair)</p>
+      <p>=></p>
+      <p>Mixed objects</p>
+      <p>Methods</p>
+      <ul>
+        <li>Index, keys, values, length, to_a</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Symbols</h2>
+    </hgroup>
+    <article>
+      <p>A symbol is  a label  used to identify a piece of data</p>
+      <p>A symbol  is only stored in memory one time</p>
+      <p>object_id</p>
+      <p>Symbols is not a variable</p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Booleans</h2>
+    </hgroup>
+    <article>
+      <p>True / False</p>
+      <p>Logic Operators</p>
+      <ul>
+        <li>==</li>
+        <li>>, &lt;, &lt;=, >=</li>
+        <li>!, !=</li>
+        <li>&&, ||</li>
+      </ul>
+      <p>Methods</p>
+      <ul>
+        <li>Between?, empty?, include? , has_key?</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ranges</h2>
+    </hgroup>
+    <article>
+      <p>Inclusive  1..10</p>
+      <ul>
+        <li>1,2,3,4,5,6,7,8,9,10</li>
+      </ul>
+      <p>Exclusive 1...10</p>
+      <ul>
+        <li>1,2,3,4,5,6,7,8,9</li>
+      </ul>
+      <p>Begin, end, first and last</p>
+      <p>include?</p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Constants</h2>
+    </hgroup>
+    <article>
+      <p>Similar to variables</p>
+      <p>But we can change constant with WARNING</p>
+    </article>
+  </slide>
+
+
+
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/title_logo.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <!-- <p>Important contact information goes here.</p> -->
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+// var _gaq = _gaq || [];
+// _gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+// _gaq.push(['_trackPageview']);
+
+// (function() {
+//   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+//   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+//   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+// })();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
