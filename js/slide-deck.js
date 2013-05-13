@@ -175,7 +175,6 @@ SlideDeck.prototype.onBodyKeyDown_ = function(e) {
   if (this.controller && this.controller.isPopup) {
     this.controller.sendMsg({keyCode: e.keyCode});
   }
-
   switch (e.keyCode) {
     case 13: // Enter
       if (document.body.classList.contains('overview')) {

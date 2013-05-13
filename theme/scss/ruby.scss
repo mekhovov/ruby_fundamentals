@@ -57,7 +57,7 @@
 
 body {
   background: black;
-  background: #dcdcdc url('../../images/bg/bg-linen.png') repeat fixed;
+  background: #dcdcdc url('../../images/bg/linen.png') repeat fixed;
 }
 
 slides > slide {
@@ -65,7 +65,7 @@ slides > slide {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 26px;
   color: $gray-3;
-  //@include background(linear-gradient(white, white 85%, $gray-1));
+  // @include background(linear-gradient(white, white 85%, $gray-1));
   //background-color: white;
   width: $slide-width;
   height: $slide-height;
@@ -77,10 +77,7 @@ slides > slide {
 
   // @include box-shadow(5px 5px 20px $gray-4);
 
-  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.35);
-  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.35);
-  -o-box-shadow: 0px 1px 3px rgba(0,0,0,0.35);
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.35);
+  
 
   @include transition(all 0.6s ease-in-out);
 
@@ -135,6 +132,53 @@ slides > slide {
   &.dark {
     background: $gray-4 !important;
   }
+
+  &.dark_linen {
+    background:#585A5E url(../../images/bg/linen.png) !important;
+    hgroup h2 {
+      // line-height: 1.1em;
+      // font-size: 75px;
+      // font-family: 'GoodDog';
+      // color: orange;
+      // text-shadow: #111 2px 4px;
+      color: #ddd;
+    }
+  }
+
+  &.linen {
+    background:#585A5E url(../../images/bg/bg-linen.png) !important;
+    text-shadow: #ccc 1px 2px 4px;
+    color: #444;
+    hgroup h2 {
+      // line-height: 1.1em;
+      // font-size: 75px;
+      // font-family: 'GoodDog';
+      // color: orange;
+      text-shadow: #ccc 1px 2px 4px;
+      color: #444;
+    }
+  }
+
+
+  &.without_box {
+    background: #dcdcdc url('../../images/bg/linen.png') repeat; 
+    @include border-radius(0);
+    border: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none !important;
+    -o-box-shadow: none;
+    box-shadow: none !important;
+    hgroup h2 {
+      line-height: 1.1em;
+      font-size: 75px;
+      font-family: 'GoodDog';
+      color: orange;
+      text-shadow: #111 2px 4px;
+      // color: #ddd;
+    }
+  }
+
+  
 
   &:not(.nobackground) {
     //background: white url(../../images/google_developers_icon_128.png) ($brand-small-icon-size * 2) 98% no-repeat;
@@ -242,6 +286,10 @@ slides.layout-faux-widescreen {
     //@include transform(translate(0));
     //@include transform(translate3d(0, 0, 0));
     opacity: 1;
+    -moz-box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    -o-box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   }
 
   > slide.next {
@@ -350,10 +398,11 @@ pre {
   padding: 10px 0 10px $slide-left-right-padding;
   letter-spacing: -1px;
   margin-bottom: 20px;
-  width: 106%;
+  // width: 106%;
+  width: auto;
   background-color: $gray-1;
   // left: -$slide-left-right-padding;
-  left: -25px;
+  left: 0px;
   position: relative;
   @include box-sizing(border-box);
   /*overflow: hidden;*/
@@ -403,7 +452,7 @@ pre.shadow:before, pre.shadow:after {
   bottom: 15px;
   width: 50%;
   height: 20%;
-  max-width: 400px;
+  max-width: 300px;
   -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
   box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
@@ -1106,4 +1155,290 @@ aside.gdbar {
     font-family: monospace !important;
   }
 
+}
+
+
+/*******************************************************************************
+ * Fonts
+ ******************************************************************************/
+
+
+@font-face {
+  font-family: 'burnstown_dam';
+  src: url("../../fonts/burnstown_dam.otf");
+}
+@font-face {
+  font-family: 'GoodDog';
+  src: url("../../fonts/GoodDog.otf");
+}
+@font-face {
+  font-family: '1942';
+  src: url("../../fonts/1942.ttf");
+}
+@font-face {
+  font-family: 'destroy';
+  src: url("../../fonts/DESTROY_.ttf");
+}
+@font-face {
+  font-family: 'Ubuntu-Title';
+  src: url("../../fonts/Ubuntu-Title.ttf");
+}
+@font-face {
+  font-family: 'UglyQua';
+  src: url("../../fonts/UglyQua.ttf");
+}
+@font-face {
+  font-family: '3Dumb';
+  src: url("../../fonts/3Dumb.ttf");
+}
+@font-face {
+  font-family: '2Dumb';
+  src: url("../../fonts/2Dumb.ttf");
+}
+@font-face {
+  font-family: 'Qarmic_sans_Abridged';
+  src: url("../../fonts/Qarmic_sans_Abridged.ttf");
+}
+
+
+
+@font-face {
+  font-family: "Ayita";
+  src: url('../../fonts/AyitaPro-SemiBold.eot');
+}
+
+@font-face {
+  font-family: "Ayita";
+  src: url('../../fonts/AyitaPro-SemiBold.ttf') format("truetype");
+}  
+
+@font-face {
+  font-family: "museo_slab";
+  src: url('../../fonts/museo_slab_300-webfont.eot');
+}
+
+@font-face {
+  font-family: "museo_slab";
+  src: url('../../fonts/museo_slab_300-webfont.ttf') format("truetype");
+} 
+
+
+
+/*******************************************************************************
+ * Colour text
+ ******************************************************************************/
+
+$red_text: #e21d1d;
+$yellow_text: #f7cc22;
+$green_text: #419a0c;
+$orange_text: orange;
+$blue_text: #2666cc;
+$darkblue_text: #1b4568;
+$purple_text: #551a8b;
+
+.blue_text {
+  color: $blue_text;
+}
+.red_text {
+  color: $red_text;
+}
+.yellow_text {
+  color: $yellow_text;
+}
+.green_text {
+  color: $green_text;
+}
+.orange_text {
+  color: $orange_text;
+}
+.darkblue_text {
+  color: $darkblue_text;
+}
+.purple_text {
+  color: $purple_text;
+}
+.white_text {
+  color: white;
+}
+
+.blue_text, .red_text, .yellow_text, .green_text, .orange_text, .darkblue_text, .purple_text {
+  text-shadow: #222 1px 1px;
+}
+
+.mark_blue, .mark_red, .mark_yellow, .mark_orange, .mark_green, .mark_purple {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #222;
+  // text-shadow(0 1px 4px #000);
+  margin-bottom: 10px;
+}
+
+.mark_white {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+.mark_black {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #111;
+}
+
+
+.mark_blue {
+  background-color: rgba(38, 102, 204, 0.3);
+}
+.mark_red {
+  background-color: rgba(226, 29, 29, 0.3);
+}
+.mark_yellow {
+  background-color: rgba(247, 204, 34, 0.3);
+}
+.mark_orange{
+  background-color: rgba(255, 145, 20, 0.3);
+}
+.mark_white {
+  background-color: rgba(247, 244, 234, 0.3);
+  color: #111;
+}
+.mark_black {
+  background-color: rgba(47, 44, 34, 0.3);
+  color: white;
+}
+.mark_green {
+  background-color: rgba(65, 154, 12, 0.3);
+}
+.mark_purple {
+  background-color: rgba(85, 26, 139, 0.3);
+}
+
+.destroy_title {
+  font-size: 80px; 
+  font-family: 'destroy'; 
+  text-shadow: #111 2px 4px;
+}
+
+.cool_title {
+  font-size: 80px; 
+  font-family: 'GoodDog'; 
+  text-shadow: #111 2px 4px;
+}
+
+.cool_title.big {
+  font-size: 130px; 
+}
+
+.bottom {
+  position: absolute; 
+  bottom: 50px;
+}
+
+.top {
+  position: absolute; 
+  top: 30px;
+}
+
+.left {
+  position: absolute; 
+  left: 30px;
+}
+
+.right {
+  position: absolute; 
+  right: 30px;
+}
+
+/*******************************************************************************
+ * AGENDA
+ ******************************************************************************/
+.slide-agenda .item span {
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+  padding: 0 40px;
+  margin-bottom: 0px; 
+  font-size: 50px; 
+  font-weight: bold;
+  font-family:'UglyQua';
+}
+.slide-agenda .item img {
+  vertical-align: middle;
+  width: 100px
+}
+.slide-agenda .item {
+  -webkit-animation: agenda-slide 10s infinite ease-in-out;
+  -webkit-animation-delay: 0;
+  -webkit-animation-direction: normal;
+  -moz-animation: agenda-slide 10s infinite ease-in-out;
+  -moz-animation-delay: 0;
+  -moz-animation-direction: normal;
+  -moz-animation: agenda-slide 10s infinite ease-in-out;
+  -moz-animation-delay: 0;
+  -moz-animation-direction: normal;
+}
+.slide-agenda .item:nth-child(1)  {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+}
+.slide-agenda .item:nth-child(2)  {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+}
+.slide-agenda .item:nth-child(3)  {
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+}
+.slide-agenda .item:nth-child(4)  {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+}
+.slide-agenda .item:nth-child(5)  {
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+}
+
+
+/*******************************************************************************
+ * PROFILE
+ ******************************************************************************/
+
+.guys {
+  color: #ccc;
+  hgroup h2 {
+    position: absolute;
+  top: 0px;
+  }
+  .profile {
+    width: 450px;
+    position: absolute;
+    top: 100px;
+    .mark_green, .mark_red {
+      color: #eee;
+      margin-top:10px;
+    }
+  }
+  .profile.right {
+    right: 10px;
+    .ico {
+      width: 100px;
+      position: absolute;
+      top: -10px;
+      left: -110px;
+    }
+  }
+  .profile.left {
+    left: 110px;
+    .ico {
+      width: 100px;
+      position: absolute;
+      bottom: -10px;
+      left: -110px;
+    }
+  }
+  .profile .profile img {
+    max-height: 450px;
+  }
 }

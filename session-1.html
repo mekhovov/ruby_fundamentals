@@ -16,7 +16,9 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <!--This one seems to work all the time, but really small on ipad-->
   <!--<meta name="viewport" content="initial-scale=0.4">-->
+  
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/animation.css">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
@@ -38,7 +40,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
+  <!-- <slide>
     <hgroup>
       <h2>Agenda</h2>
     </hgroup>
@@ -50,10 +52,35 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Basic Data Types</li>
       </ul>
     </article>
+  </slide> -->
+
+
+  <slide class="without_box">
+    <hgroup>
+      <h2>Agenda</h2>
+    </hgroup>
+    <article class="slide-agenda">
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="green_text">History</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="red_text">Installation</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="blue_text">Ruby usage</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="yellow_text">Basic Data Types</span>
+        </div>
+    </article>
   </slide>
 
 
-  <slide class="segue dark nobackground">
+  <slide class="segue linen nobackground">
     <aside class="gdbar"><img src="images/title_logo.png"></aside>
     <hgroup class="auto-fadein">
       <h2>History</h2>
@@ -62,7 +89,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide class="segue dark quote nobackground">
+  <slide class="segue linen quote nobackground">
     <aside class="gdbar right bottom"><img src="images/title_logo.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <q>
@@ -76,26 +103,137 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li><a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</a> </li>
-          <li><a href="http://www.ruby-lang.org">http://www.ruby-lang.org</a></li>
-        </ul>
-      </section>
-    </aside>
+  <slide class="fill nobackground" style="background-image: url(images/bg_scene.jpg)">
     <hgroup>
-      <h2>What is Ruby?</h2>
+      <h2 class="cool_title red_text" style="font-size: 90px">Web development that doesn't hurt</h2>
     </hgroup>
     <article>
-      <h3>Ruby is</h3>
-      <ul>
-        <li>a dynamic</li>
-        <li>reflective</li>
-        <li>general-purpose</li>
-        <li>object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features</li>
-      </ul>
+      <span style="margin-left:160px">
+        <video width="620" height="480" controls="controls" >
+          <source src="videos/ror_web_development_that_doesnt_h.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </span>
+    </article>
+  </slide>
+
+
+  <slide class="without_box guys">
+    <hgroup>
+      <h2>Who are these guys?</h2>
+    </hgroup>
+    <article>
+      <span class="profile left">
+        <img src="images/matz.jpg" /><br>
+        <span class="name bidelman">Yukihiro Matsumoto (<b>matz</b>)</span><br>
+        <a target="_blank" href="http://www.ruby-lang.org/en/" class="mark_red">Ruby</a> <span class="mark_green">Programming Language</span>
+        <img src="images/ico_ruby.png" class="ico"></img>
+      </span>
+      <span class="profile right">
+        <span class="name kurrik">David Heinemeier Hansson (<b>dhh</b>)</span><br>
+        <img src="images/ico_ror.png" class="ico"></img> 
+        <a target="_blank" href="http://rubyonrails.org/" class="mark_red"> Ruby on Rails</a> <span class="mark_green">Web Framework</span>
+        <img src="images/dhh.jpg" /><br>
+      </span>
+    </article>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_what_is.jpg)">
+    <hgroup>
+      <h2 class="cool_title big bottom right orange_text">What is Ruby ?</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_language.jpg)">
+    <hgroup>
+      <h2 class="cool_title big top yellow_text">Object-oriented</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_dynamic.jpg)">
+    <hgroup>
+      <h2 class="cool_title big top blue_text">Dynamic</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_reflective.jpg)">
+    <hgroup>
+      <h2 class="cool_title big bottom white_text">Reflective</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_light.jpg)">
+    <hgroup>
+      <h2 class="cool_title big right bottom orange_text">Lightweight</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_functional.jpg)">
+    <hgroup>
+      <h2 class="cool_title big bottom green_text">Slightly Functional</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_os.jpg)">
+    <hgroup>
+      <h2 class="cool_title big bottom red_text">Open Source</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_elegant.jpg)">
+    <hgroup>
+      <h2 class="cool_title big top right green_text">Elegant</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg_ruby_flexible.jpg)">
+    <hgroup>
+      <h2 class="cool_title big top blue_text">Flexible</h2>
+    </hgroup>
+  </slide>
+
+  <slide class="without_box">
+    <!-- <hgroup>
+      <h2>Why Ruby?</h2>
+    </hgroup> -->
+    <article style="margin-left:120px;">
+      <h2 class="white">Ruby is a <span class="white mark_yellow">lightweight</span>, <span class="white mark_red">dynamic</span>,</h2>
+      <br>
+      <h2 class="white"> <span class="white mark_red">reflective</span>, <span class="white mark_purple">general purpose</span> </h2>
+      <br>
+      <h2 class="white"><span class="white mark_green">object-oriented</span>, <span class="white mark_yellow">scripting</span></h2>
+      <br>
+      <h2 class="white">(and slightly <span class="white mark_blue">functional</span>) </h2>
+      <br>
+      <h2 class="white"><span class="white mark_yellow">open-source</span>   programming language</h2>
+      <br>
+      <h2 class="white">with <span class="white mark_red">elegant</span>, <span class="white mark_green">flexible syntax.</span></h2>
+    </article>
+  </slide>
+
+
+  <slide class="segue linen quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/title_logo.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        <span class="white">I believe</span> people want to <span class="white">express</span> themselves when they program.
+        <span class="white">I tried</span> to make people <span class="white">enjoy</span> programming and concentrate on the <span class="white">fun</span>
+        and <span class="white">creative</span> part of programming when they use <span class="white">Ruby</span>.
+      
+      </q>
+      <div class="author">
+        Yukihiro Matsumoto<br>
+        “Matz”
+      </div>
     </article>
   </slide>
 
@@ -105,33 +243,14 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Why Ruby?</h2>
     </hgroup>
     <article>
-      <h3>Ruby is</h3>
-      <ul>
-        <li>Object-oriented</li>
-        <li>Huge dev community</li>
-        <li>Rails as a killer app framework</li>
-        <li>Syntactic sugar</li>
-        <li>Expressive</li>
-        <li>Tons of libraries</li>
-      </ul>
-    </article>
-  </slide>
-
-  
-  <slide>
-    <hgroup>
-      <h2>Ruby vs Ruby on Rails</h2>
-    </hgroup>
-    <article>
-      <h3>Ruby on Rails</h3>
-      <ul>
-        <li>Web Framework written in Ruby</li>
-      </ul>
-      <h3>Ruby</h3>
-      <ul>
-        <li>General purpose language</li>
-        <li>Not just for Web</li>
-      </ul>
+        <br><br><br><br>
+        <h3 class="mark_green">Object-oriented</h3>
+        <h3 class="mark_yellow">Huge dev community</h3>
+        <h3 class="mark_red">Syntactic sugar</h3>
+        <br>
+        <h3 class="mark_blue">Expressive</h3>
+        <h3 class="mark_purple">Tons of libraries</h3>
+        <h3 class="mark_orange">Rails as a killer app framework</h3>
     </article>
   </slide>
 
@@ -162,13 +281,13 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>02/24/1993 - Pre-history age. Without code</li>
-        <li>12/21/<span class='red3'>1995</span> - Ruby is in public. V.0.95</li>
-        <li>12/25/1996 - Ruby 1.0 released</li>
-        <li>10/27/1999 - the first Ruby book</li>
-        <li>xx/07/2004 - DHH first released <span class='blue3'>Ruby on Rails</span></li>
-        <li>xx/12/<span class='yellow3'>2005</span> - version 1 of <span class='blue3'>Ruby on Rails</span> was released</li>
-        <li>xx/10/<span class='green3'>2007</span> - bundle/ship RoR w/ OS X Leopard  </li>
+        <li><span class="mark_green">02/24/1993</span> <span class="mark_green">Pre-history age. Without code</span></li>
+        <li><span class="mark_green">12/21/1995</span> <span class="mark_green">Ruby is in public. V.0.95</span></li>
+        <li><span class="mark_orange">12/25/1996</span> <span class="mark_orange">Ruby 1.0 released</span></li>
+        <li><span class="mark_green">10/27/1999</span> <span class="mark_green">the first Ruby book</span></li>
+        <li><span class="mark_green">xx/07/2004</span> <span class="mark_green">DHH first released Ruby on Rails</span></li>
+        <li><span class="mark_red">xx/12/2005</span> <span class="mark_red">version 1 of Ruby on Rails was released</span></li>
+        <li><span class="mark_green">xx/10/2007</span> <span class="mark_green">bundle/ship RoR w/ OS X Leopard  </li>
       </ul>
     </article>
   </slide>
@@ -189,21 +308,24 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Ruby Implementations</h2>
     </hgroup>
     <article>
-      <ul>
-        <li><a href="http://www.ruby-lang.org" class="gray2">Ruby 1.8, MRI</a></li>
-        <li><a href="http://www.rubyenterpriseedition.com/" class="gray2">Ruby 1.8, EE</a></li>
-        <li><a href="http://www.ruby-lang.org" class="red3">Ruby 1.9, YARV</a></li>
-        <li><a href="http://jruby.org" class="green3">JRuby</a></li>
-        <li><a href="http://rubini.us" class="blue3">Rubinius</a></li>
-        <li><a href="http://macruby.org">MacRuby</a></li>
-        <li><a href="http://maglev.github.io">MagLev</a></li>
-        <li><a href="http://en.wikipedia.org/wiki/IronRuby">IronRuby</a></li>
-      </ul>
+        <br>
+        <h3>
+          <a class="mark_yellow" href="http://www.ruby-lang.org" class="gray2">Ruby 1.8, MRI</a>
+          <a class="mark_yellow" href="http://www.rubyenterpriseedition.com/" class="gray2">Ruby 1.8, EE</a>
+          <a class="mark_green" href="http://www.ruby-lang.org">Ruby 1.9, YARV</a>
+          <br><br>
+          <a class="mark_blue" href="http://jruby.org">JRuby</a>
+          <a class="mark_purple" href="http://rubini.us" >Rubinius</a>
+          <br><br>
+          <a class="mark_red" href="http://macruby.org">MacRuby</a>
+          <a class="mark_red" href="http://maglev.github.io">MagLev</a>
+          <a class="mark_red" href="http://en.wikipedia.org/wiki/IronRuby">IronRuby</a>
+        </h3>
     </article>
   </slide>
 
 
-  <slide class="segue dark nobackground">
+  <slide class="segue linen nobackground">
     <aside class="gdbar"><img src="images/title_logo.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Installation</h2>
@@ -211,26 +333,58 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
   </slide>
 
+  <slide>
+    <hgroup>
+      <h2>RVM</h2>
+      <h3>Ruby Version Manager</h3>
+      <a href="http://rvm.io">http://rvm.io</a>
+    </hgroup>
+    <article>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+curl -L https://get.rvm.io | bash -s stable --ruby
+</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+➜  ~  rvm install 1.9.3
+➜  ~  rvm use 1.9.3
+</pre>
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
-      <h2>:ruby => *nix</h2>
+      <h2>RVM</h2>
+      <h3>Gem Set</h3>
     </hgroup>
-    <article class="flexbox vcenter">
-      <img src="images/ruby_not_only_nix.png" style="max-height: 450px">
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+➜  ~  rvm gemset create my_project
+➜  ~  rvm gemset use my_project
+</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+# .rvmrc file
+rvm use ruby-1.9.3-head@my_project --create
+</pre>
     </article>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/bg-rvm.png)">
+    <hgroup>
+    <h2 class="cool_title blue_text bottom" style="font-size: 150px; bottom: 60px">What about Windows?</h2>
+    </hgroup>
   </slide>
 
 
   <slide>
     <hgroup>
       <h2>Installing Ruby</h2>
+      <h3>on windows</h3>
     </hgroup>
     <article>
       <img src="images/ruby_installer.png" style="float: right">
-      <h3>Interpretator</h3>
+      <h3>Ruby Installer</h3>
       <ul>
-        <li><a href="http://www.ruby-lang.org">http://www.ruby-lang.org</a></li>
         <li><a href="http://rubyinstaller.org">http://rubyinstaller.org</a></li>
       </ul>
       <br>
@@ -245,7 +399,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   
-  <slide class="segue dark nobackground">
+  <slide class="segue linen nobackground">
     <aside class="gdbar"><img src="images/title_logo.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Ruby usage</h2>
@@ -264,23 +418,59 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Using Ruby</h2>
     </hgroup>
     <article>
-      <h3>Single command</h3>
+      Create a file "test.rb"
       <pre class="prettyprint shadow" data-lang="javascript">
-ruby –e "&lt;cmd>"
+puts "Hello World"
 </pre>
-      <h3>Ruby file</h3>
+      Run command
+<pre class="prettyprint shadow" data-lang="javascript">
+➜  ~ ruby test.rb
+</pre>
+      <br><br>
+      Create a file "test.rb"
       <pre class="prettyprint shadow" data-lang="javascript">
-ruby &lt;script>.rb
+#!/usr/bin/ruby
+
+puts "Hello World"
 </pre>
-      <h3>Interactive Ruby Shell (IRB)</h3>
-      <pre class="prettyprint shadow" data-lang="javascript">
-irb
+
+    Run command
+<pre class="prettyprint shadow" data-lang="javascript">
+➜  ~  test.rb
 </pre>
+     
     </article>
   </slide>
 
 
-  <slide class="segue dark nobackground">
+  <slide>
+    <hgroup>
+      <h2>IRB</h2>
+      <h3>Interactive Ruby</h3>
+    </hgroup>
+    <article>
+      Just run 'irb' command in tour console
+      <pre class="prettyprint shadow" data-lang="javascript">
+➜  ~  irb
+1.9.3-p125 :001 >
+</pre>
+      <br><br>
+      Type any ruby code and run it
+<pre class="prettyprint shadow" data-lang="javascript">
+1.9.3-p125 :001 > puts "Hello World!"
+
+Hello World!
+
+ => nil 
+
+1.9.3-p125 :002 > 
+</pre>
+     
+    </article>
+  </slide>
+
+
+  <slide class="segue linen nobackground">
     <aside class="gdbar"><img src="images/title_logo.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Basic Data Types</h2>
@@ -303,6 +493,16 @@ irb
 
 
   <slide>
+    <hgroup>
+      <h2>Class Hierarhy</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/class_hierarchy.png" class="reflect" style="max-width: 1000px">
+    </article>
+  </slide>
+
+
+  <slide class="without_box">
     <aside class="note">
       <section>
         <ul>
@@ -312,11 +512,39 @@ irb
       </section>
     </aside>
     <hgroup>
-      <h2>Objects</h2>
+      <!-- <h2>Objects</h2> -->
     </hgroup>
     <article>
-      <h3>Everything is an Object</h3>
-      <h3>Object is instance of a Class</h3>
+      <h3 class="cool_title big red_text">Everything is an Object
+      <h3 class="cool_title big orange_text" style="font-size: 100px">Object is an instance of a Class</h3>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Variables</h2>
+    </hgroup>
+    <article>
+      a = 10
+b = 20
+c = 30
+a, b, c = 10, 20, 30
+</pre>
+
+<pre style="font-size:25px" >
+y = 'hello'
+y.class                 # => String
+y = 20 
+y.kind_of? Integer      # => true
+y.class                 # => Fixnum
+y.to_f                  # => 20.0
+y.to_s                  # => "20"
+defined? y              # "local-variable"
+
+$x = 10
+defined? x              # "global-variable"
+</pre>
     </article>
   </slide>
 
@@ -353,187 +581,415 @@ SOME_CONST = 5
 
   <slide>
     <hgroup>
-      <h2>Variables Scope Indication</h2>
+      <h2>Variables Scope</h2>
     </hgroup>
-    <article>
-    <pre class="prettyprint shadow" data-lang="javascript">
-#Global
-<b>$</b>variable
+    <article class="flexbox vcenter">
+      <img src="images/ruby_scope.png" style="max-width: 800px">
+    </article>
+  </slide>
 
-#Class
-<b>@@</b>variable
 
-#Instance
-<b>@</b>variable
-
-#Local
-variable
-</pre>
-  
+  <slide class="without_box">
+    <hgroup>
+      <h2>Dynamic Typing</h2>
+    </hgroup>
+    <article style="">
+      <h2 class="white">If it <span class="white mark_purple">looks like</span>a duck, <span class="white mark_purple">quacks</span> like a duck, <br>then it’s a <span class="white mark_red">duck</span></h2>
+      <br>
+      <h3 class="white"> The interpreter <span class="white mark_green">assign types</span> to variables <span class="white mark_green">dynamically</span> based on context </h3>
+      <br>
+      <h3 class="white">The interpreter can allocate <span class="white mark_yellow">more memory</span> for a <span class="white mark_yellow">variable</span></h3>
+      <br>
+      
     </article>
   </slide>
 
 
   <slide>
-    <aside class="note">
-      <section>
-        Integers
-        <ul>
-          <li>1+2 1-4  2**4   x = 4  x += 2</li>
-        </ul>
-        Integers is an Object 
-          <li>123.class</li>
-        </ul>
-      </section>
-    </aside>
     <hgroup>
       <h2>Numbers</h2>
     </hgroup>
     <article>
-      <h3>Integers</h3>
-      <h3>Floating point numbers (floats)</h3>
+      
+      <pre class="prettyprint shadow" data-lang="javascript">
+num = 81
+
+6.times do
+  puts "#{num.class}: #{num}"
+  num *= num
+end
+</pre>
+      
+<pre class="prettyprint shadow" data-lang="javascript">
+Fixnum: 81
+Fixnum: 6561
+Fixnum: 43046721
+Fixnum: 1853020188851841
+Bignum: 3433683820292512484657849089281
+Bignum: 11790184577738583171520872861412518665678211592275841109096961
+</pre>
+     
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Strings</h2>
+      <h2>Numbers conversion</h2>
+    </hgroup>
+    <article>
+      
+      <pre class="prettyprint shadow" data-lang="javascript">
+1 + 2       # => 3
+1 + 2.0     # => 3.0
+1.0 + 2     # => 3.0
+</pre>
+      
+<pre class="prettyprint shadow" data-lang="javascript">
+1.0 / 2     # => 0.5
+1 / 2.0     # => 0.5
+1 / 2       # => 0
+</pre>
+     
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>String</h2>
     </hgroup>
     <article>
       <pre class="prettyprint shadow" data-lang="javascript">
-"Hello"
-
-'Hello'
-
-'Hello' * 5
-
-1 * 5 vs '1'  * 5
+"New string"                       # => New string
 </pre>
-    <p>
-      Escaping
-    </p>
-    <p>
-      String interpolation
-    </p>
-    </article>
-  </slide>
-
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>array = []</li>
-          <li>array[1]</li>
-          <li>array << "d"</li>
-        </ul>
-        Integers is an Object 
-          <li>123.class</li>
-        </ul>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Arrays</h2>
-    </hgroup>
-    <article>
-      <p>An ordered, integer-indexed collection of objects</p>
-      <p>Objects that can go in array</p>
-      <ul>
-        <li>Numbers</li>
-        <li>String</li>
-        <li>Arrays</li>
-        <li>Mixed types</li>
-      </ul>
-      <p>Methods</p>
-      <ul>
-        <li>Inspect, join, to_s, reverse, uniq!, <<, delete_at, delete, +</li>
-        <li>String#split</li>
-      </ul>
+      <pre class="prettyprint shadow" data-lang="javascript">
+"Tro #{'Lo ' * 3} !!"              # => Tro Lo Lo Lo  !!
+</pre>
+    <pre class="prettyprint shadow" data-lang="javascript">
+"now is #{def the(a)
+            'the' + a
+          end
+          the('time') 
+          } for all good coders.."
+                               
+# => now is the time for all good coders..
+</pre>
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Hashes</h2>
+      <h2>String</h2>
     </hgroup>
     <article>
-      <p>An ordered, object-indexed collection of objects (or key-value pair)</p>
-      <p>=></p>
-      <p>Mixed objects</p>
-      <p>Methods</p>
-      <ul>
-        <li>Index, keys, values, length, to_a</li>
-      </ul>
+      <pre class="prettyprint shadow" data-lang="javascript">
+"Seconds/day: #{24*60*60}"       # => Seconds/day: 86400
+</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+'{Seconds/day: #{24*60*60}'      # => Seconds/day: #{24*60*60}
+</pre>
+    <pre class="prettyprint shadow" data-lang="javascript">
+'con' "cat" 'en' "ate"           # => concatenate
+</pre>
+    <pre class="prettyprint shadow" data-lang="javascript">
+"Ukraine on Rails".split(' ')    #=> ["Ukraine", "on", "Rails"]
+</pre>
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Symbols</h2>
+      <h2>String</h2>
     </hgroup>
     <article>
-      <p>A symbol is  a label  used to identify a piece of data</p>
-      <p>A symbol  is only stored in memory one time</p>
-      <p>object_id</p>
-      <p>Symbols is not a variable</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+print <<-eos                      
+Double  quoted \ here document.   
+It is #{Time.now}                 
+eos
+
+# => Double  quoted  here document.
+# => It is 2012-10-11 22:53:35 +0300
+</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+print <<-'eos'
+Double  quoted here document.       
+It is #{Time.now}                   
+eos
+
+# => Double  quoted  here document.
+# => It is #{Time.now} 
+</pre>
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Booleans</h2>
+      <h2>Array</h2>
     </hgroup>
     <article>
-      <p>True / False</p>
-      <p>Logic Operators</p>
-      <ul>
-        <li>==</li>
-        <li>>, &lt;, &lt;=, >=</li>
-        <li>!, !=</li>
-        <li>&&, ||</li>
-      </ul>
-      <p>Methods</p>
-      <ul>
-        <li>Between?, empty?, include? , has_key?</li>
-      </ul>
+      <pre class="prettyprint shadow" data-lang="javascript">
+['this', :is, 1, "Array", [1,2,3], barney("pebbles")]
+
+#=> ['this', :is, 1, "Array", [1,2,3], "pebbles result"]
+</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+%w(monkey fish lion dog cat -#{Time.now}-)
+%W(monkey fish lion dog cat -#{Time.now}-)
+
+#=> ["monkey", "fish", "lion", "dog", "cat", "-\#{Time.now}-"] 
+#=> ["monkey", "fish", "lion", "dog", "cat", "-2012-10-11 23:03:18-"] 
+</pre>
+    <pre class="prettyprint shadow" data-lang="javascript">
+Array.new(4, "mac")          # => ["mac", "mac", "mac", "mac"] 
+
+Array(0..9)                  # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Array.new(10){|e| e=e*2 }    # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18] 
+</pre>
+
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Ranges</h2>
+      <h2>Array</h2>
     </hgroup>
     <article>
-      <p>Inclusive  1..10</p>
-      <ul>
-        <li>1,2,3,4,5,6,7,8,9,10</li>
-      </ul>
-      <p>Exclusive 1...10</p>
-      <ul>
-        <li>1,2,3,4,5,6,7,8,9</li>
-      </ul>
-      <p>Begin, end, first and last</p>
-      <p>include?</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+languages = 'Ruby', 'Java', 'C#', 'PHP' 
+# => ["Ruby", "Java", "C#", "PHP"] 
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+languages[0]            # => "Ruby" 
+languages[1]            # => "Java" 
+languages[4]            # => nil 
+languages[2..3]         # => ["C#", "PHP"] 
+languages[-2]           # => "C#" 
+languages.sort          # => ["C#", "Java", "PHP", "Ruby"] 
+languages.length        # => 4 
+languages.first         # => "Ruby" 
+languages.last          # => "PHP" 
+</pre>
+
     </article>
   </slide>
 
 
   <slide>
     <hgroup>
-      <h2>Constants</h2>
+      <h2>Array</h2>
     </hgroup>
     <article>
-      <p>Similar to variables</p>
-      <p>But we can change constant with WARNING</p>
+      <pre class="prettyprint shadow" data-lang="javascript">
+days1 = ['Mon', 'Tue', 'Wed']
+days2 = ['Thu', 'Fri', 'Sat', 'Sun']
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+days1 + days2
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+
+days1.concat(days2)
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+
+days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+</pre>
+
     </article>
   </slide>
 
 
+  <slide>
+    <hgroup>
+      <h2>Array</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+operating_systems = ['Fedora', 'SuSE', 'RHEL', 'Windows', 'MacOS']
+linux_systems = ['RHEL', 'SuSE', 'PCLinuxOS', 'Ubuntu', 'Fedora']
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+# Union
+operating_systems | linux_systems
+# => ["Fedora", "SuSE", "RHEL", "Windows", "MacOS", "PCLinuxOS", "Ubuntu"] 
+
+# Intersection
+operating_systems & linux_systems      # => ["Fedora", "SuSE", "RHEL"] 
+
+# Difference
+operating_systems - linux_systems      # => ["Windows", "MacOS"] 
+linux_systems - operating_systems      # => ["PCLinuxOS", "Ubuntu"] 
+
+# Uniq
+operating_systems = ['Fedora', 'SuSE', 'MacOS', 'RHEL', 'SuSE', 'Fedora']
+operating_systems.uniq                 # => ["Fedora", "SuSE", "MacOS", "RHEL"] 
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Array</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+colors = ['red', 'green', 'blue']
+
+colors.push 'indigo'    # => ["red", "green", "blue", "indigo"] 
+colors.push 'violet'    # => ["red","green","blue","indigo","violet"] 
+colors.pop              # => "violet"
+colors.pop              # => "indigo"
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+colors = ['red', 'green', 'blue']
+
+colors[1..2] = 'orange', 'pink'   # colors: ["red", "orange", "pink"] 
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+colors = ['red', 'green', 'blue']
+
+colors.delete_at(1)     # colors: ['red', 'blue']
+colors.delete("blue")   # colors: ['red']
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Hash</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+h = {
+  'dog' => 'canine',
+  'cat' => 'feline',
+  :bird => 'papuga',
+  12 => 'dodecine'
+}
+
+# => {"dog"=>"canine", "cat"=>"feline", :bird=>"papuga", 12=>"dodecine"}
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+h.length          # => 4
+h['dog']          # => "canine"
+h[:bird]          # => "papuga"
+h[12]             # => "dodecine"
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+{hashes: 1, are: 'ordered'}  #=> {:hashes => 1, :are => 'unordered'}
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Symbol</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+:my_variable        # => :my_variable
+</pre>
+
+      <br><br>
+      Symbol vs String
+      <br><br>
+      <pre class="prettyprint shadow" data-lang="javascript">
+first_symbol  = :ruby_rules
+second_symbol = :ruby_rules
+
+first_symbol.object_id          #=> 460328
+second_symbol.object_id         #=> 460328
+</pre>
+      
+      <pre class="prettyprint shadow" data-lang="javascript">
+first_string  = "ruby_rules"
+second_string = "ruby_rules"
+
+first_string.object_id          #=> 70350918711920
+second_string.object_id         #=> 70350918734000
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Range</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+1..10        # creates a range from 1 to 10 inclusive
+1...10       # creates a range from 1 to 10
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+(1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+(1...10).to_a       # => [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+('a'..'l').to_a         
+# => ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
+
+('cab'...'car').to_a       
+# => ["cab", "cac", "cad", "cae", "caf", "cag", "cah", "cai", "caj", 
+#     "cak", "cal", "cam", "can", "cao", "cap", "caq"] 
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Range</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+words = 'cab'..'car'
+
+words.min                 # => 'cab'
+words.max                 # => 'car'
+words.include?('can')     # => true
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+words.reject {|subrange| subrange > 'caf' }
+
+# => ["cab", "cac", "cad", "cae", "caf"] 
+</pre>
+
+      <pre class="prettyprint shadow" data-lang="javascript">
+words.each {|word| puts 'Hello ' + word }
+
+# => Hello cab
+# => Hello cac
+# ...
+# => Hello car
+</pre>
+
+    </article>
+  </slide>
 
 
 
