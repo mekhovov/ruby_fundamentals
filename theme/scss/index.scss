@@ -116,8 +116,8 @@ a {
 	h1 {
 		font:bold 50px/1 'PT Sans Narrow', sans-serif;
 		small {
-			color: #233;
-			font-size: 45px
+			color: #2b2c30;
+			font-size: 45px;
 			}
 		}
 	a {
@@ -168,7 +168,8 @@ a {
 	position:relative;
 	width:$width;
 	height:$height;
-	background:#FFF;
+	// background:#eee;
+	background: #dcdcdc url('../../images/bg/linen_lite.png') repeat;
 	color:#000;
 	-webkit-print-color-adjust:exact;
 	-webkit-text-size-adjust:none;
@@ -211,8 +212,9 @@ a {
 	// Header
 	h2 {
 		margin:0 0 37px;
-		color:#666;
+		color: #444;
 		font:bold 50px/1 'PT Sans Narrow', sans-serif;
+		text-shadow: 0 1px 1px #fff;
 		}
 	// Text
 	p {
@@ -454,9 +456,9 @@ a {
 		// Slide
 		.slide {
 			float:left;
-			margin:0 (100-$width/2) (100-$height/2) 0;
+			margin:0 (100-$width/2) (40-$height/2) 0;
 			@include transform-origin(0 0);
-			@include transform(scale(0.5));
+			@include transform(scale(0.40));
 			@media (max-width:$break) {
 				margin:0 (80-($width/2+$width/4)) (80-($height/2+$height/4)) 0;
 				@include transform(scale(0.25));
