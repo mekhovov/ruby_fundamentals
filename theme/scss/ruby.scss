@@ -408,7 +408,7 @@ pre {
   /*overflow: hidden;*/
   border: 1px solid;
   border-color: #cdc;
-
+  margin-top: 10px;
   &[data-lang]:after {
     content: attr(data-lang);
     // background-color: $gray-2;
@@ -425,7 +425,15 @@ pre {
 pre[data-lang="go"] {
   color: #333;
 }
-
+.prettyprint.console {
+  background-color: #444 !important;
+  border-color: #111;
+  .pun, .pln, .com, .lit, .kwd {
+    color: #eee;
+  }
+  .str { color: #22bf7f }
+  .typ { color: #ea5e4b}
+}
 pre.shadow {
   z-index: auto;
   /* http://nicolasgallagher.com/css-drop-shadows-without-images/ */

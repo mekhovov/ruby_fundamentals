@@ -223,19 +223,22 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
+  <slide class="segue linen quote nobackground">
     <hgroup>
       <h2>Why Ruby?</h2>
     </hgroup>
-    <article>
-        <br><br><br><br>
-        <h3 class="mark_green">Object-oriented</h3>
-        <h3 class="mark_yellow">Huge dev community</h3>
-        <h3 class="mark_red">Syntactic sugar</h3>
+    <article class="flexbox vleft auto-fadein">
+        <h3 class="mark_green blue_text">Object-oriented</h3>
+        <h3 class="mark_yellow blue_text">Huge dev community</h3>
+        <h3 class="mark_red blue_text">Syntactic sugar</h3>
         <br>
-        <h3 class="mark_blue">Expressive</h3>
-        <h3 class="mark_purple">Tons of libraries</h3>
-        <h3 class="mark_orange">Rails as a killer app framework</h3>
+        <q>
+          It has an elegant syntax that is natural to read and easy to write.
+        </q>
+        <br><br><br><br><br><br><br>
+        <h3 class="mark_blue blue_text">Expressive</h3>
+        <h3 class="mark_purple blue_text">Tons of libraries</h3>
+        <h3 class="mark_orange blue_text">Rails as a killer app framework</h3>
     </article>
   </slide>
 
@@ -325,11 +328,12 @@ URL: https://code.google.com/p/io-2012-slides
       <a href="http://rvm.io">http://rvm.io</a>
     </hgroup>
     <article>
-
-      <pre class="prettyprint shadow" data-lang="javascript">
-curl -L https://get.rvm.io | bash -s stable --ruby
+      <img src="images/rvm_logo.png" style="position: absolute; top: 0; right:0">
+      <br>
+      <pre class="prettyprint shadow console" data-lang="javascript">
+➜  ~  curl -L https://get.rvm.io | bash -s stable --autolibs=enabled
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="javascript">
 ➜  ~  rvm install 1.9.3
 ➜  ~  rvm use 1.9.3
 </pre>
@@ -339,10 +343,12 @@ curl -L https://get.rvm.io | bash -s stable --ruby
   <slide>
     <hgroup>
       <h2>RVM</h2>
-      <h3>Gem Set</h3>
+      <h3>GemSet</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <img src="images/rvm_logo.png" style="position: absolute; top: 0; right:0">
+      <br>
+      <pre class="prettyprint shadow console" data-lang="javascript">
 ➜  ~  rvm gemset create my_project
 ➜  ~  rvm gemset use my_project
 </pre>
@@ -408,7 +414,7 @@ rvm use ruby-1.9.3-head@my_project --create
 puts "Hello World"
 </pre>
       Run command
-<pre class="prettyprint shadow" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="javascript">
 ➜  ~ ruby test.rb
 </pre>
       <br><br>
@@ -420,7 +426,7 @@ puts "Hello World"
 </pre>
 
     Run command
-<pre class="prettyprint shadow" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="javascript">
 ➜  ~  test.rb
 </pre>
      
@@ -435,19 +441,16 @@ puts "Hello World"
     </hgroup>
     <article>
       Just run 'irb' command in tour console
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="javascript">
 ➜  ~  irb
 1.9.3-p125 :001 >
 </pre>
       <br><br>
       Type any ruby code and run it
-<pre class="prettyprint shadow" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="javascript">
 1.9.3-p125 :001 > puts "Hello World!"
-
 Hello World!
-
  => nil 
-
 1.9.3-p125 :002 > 
 </pre>
      
@@ -467,13 +470,11 @@ Hello World!
   <slide>
     <hgroup>
       <h2>Ruby Documentation</h2>
+      <a href="http://www.ruby-doc.org">http://www.ruby-doc.org</a>
     </hgroup>
     <article>
       <iframe data-src="http://www.ruby-doc.org"></iframe>
     </article>
-    <footer>
-      <a href="http://www.ruby-doc.org">http://www.ruby-doc.org</a>
-    </footer>
   </slide>
 
 
@@ -508,27 +509,52 @@ Hello World!
 
   <slide>
     <hgroup>
+      <h2>Everything is an Object</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+"stressed".reverse   #=> "desserts"
+
+"hello".empty?    #=> false
+
+"".empty?         #=> true
+
+1.next            #=> 2
+
+12.odd?           #=> false
+
+10.methods.count  #=> 130
+
+true.class        #=> TrueClass
+
+nil.class         #=> NilClass
+
+self.class        #=> Object
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
       <h2>Variables</h2>
     </hgroup>
     <article>
-      a = 10
-b = 20
-c = 30
-a, b, c = 10, 20, 30
-</pre>
+      <pre class="prettyprint shadow" data-lang="javascript">
+a = 10
 
-<pre style="font-size:25px" >
-y = 'hello'
-y.class                 # => String
-y = 20 
-y.kind_of? Integer      # => true
-y.class                 # => Fixnum
-y.to_f                  # => 20.0
-y.to_s                  # => "20"
+a, b, c, d = 20, "Ruby-Dooby-Doo", Time.now
+
+b.class                 # => String
+
+b = 20 
+b.kind_of? Integer      # => true
+b.class                 # => Fixnum
+
+b.to_f                  # => 20.0
+b.to_s                  # => "20"
+
 defined? y              # "local-variable"
-
-$x = 10
-defined? x              # "global-variable"
 </pre>
     </article>
   </slide>
@@ -539,7 +565,7 @@ defined? x              # "global-variable"
       <h2>Variables Naming</h2>
     </hgroup>
     <article>
-      <p>Use <span class="green3">snake_case</span> for variables, methods and symbols</p>
+      Use <span class="green3">snake_case</span> for variables, methods and symbols
       <pre class="prettyprint shadow" data-lang="javascript">
 variable_name = :some_symbol
 
@@ -547,29 +573,30 @@ def some_method
   ...
 end
 </pre>
-      <p>Use <span class="green3">CamelCase</span> for classes and modules</p>
+      Use <span class="green3">CamelCase</span> for classes and modules
       <pre class="prettyprint shadow" data-lang="javascript">
 class SomeClass
   ...
 end
 </pre>
-      <p>Use <span class="green3">SCREAMING_SNAKE_CASE</span> for other constants</p>
+      Use <span class="green3">SCREAMING_SNAKE_CASE</span> for other constants
       <pre class="prettyprint shadow" data-lang="javascript">
 SOME_CONST = 5
 </pre>
     <footer>
-      <span style="font-size: 14px">The only real difficulties in programming are cache invalidation and naming things. -- Phil Karlton</span>
+      <br>
+      <span style="font-size: 20px">The only real difficulties in programming are cache invalidation and naming things. -- Phil Karlton</span>
     </footer>
     </article>
   </slide>
 
 
-  <slide>
+  <slide class='linen'>
     <hgroup>
       <h2>Variables Scope</h2>
     </hgroup>
     <article class="flexbox vcenter">
-      <img src="images/ruby_scope.png" style="max-width: 800px">
+      <img src="images/ruby_scope.png" style="max-width: 820px">
     </article>
   </slide>
 
@@ -593,6 +620,7 @@ SOME_CONST = 5
   <slide>
     <hgroup>
       <h2>Numbers</h2>
+      <h3>Auto Increasing</h3>
     </hgroup>
     <article>
       
@@ -605,7 +633,7 @@ num = 81
 end
 </pre>
       
-<pre class="prettyprint shadow" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="javascript">
 Fixnum: 81
 Fixnum: 6561
 Fixnum: 43046721
@@ -620,7 +648,8 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
 
   <slide>
     <hgroup>
-      <h2>Numbers conversion</h2>
+      <h2>Numbers</h2>
+      <h3>conversion</h3>
     </hgroup>
     <article>
       
@@ -634,6 +663,38 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
 1.0 / 2     # => 0.5
 1 / 2.0     # => 0.5
 1 / 2       # => 0
+</pre>
+     
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Numbers: <a href="http://ruby-doc.org/core-1.9.3/Fixnum.html">Usefull Methods</a> </h2>
+      <pre class="prettyprint shadow" data-lang="javascript">
+10.methods
+</pre>
+    </hgroup>
+    <article>
+
+<pre class="prettyprint shadow console" data-lang="javascript">
+[to_s, -@, +, -, *, /, div, %, modulo, divmod, fdiv, <b>**</b>, <b>abs</b>, 
+magnitude, ==, ===, <b><=></b>, >, >=, <, <=, ~, &, |, ^, [], <<, >>, 
+to_f, size, <b>zero?</b>, <b>odd?</b>, <b>even?</b>, succ, integer?, <b>upto</b>, <b>downto</b>, <b>times</b>, 
+<b>next</b>, <b>pred</b>, chr, ord, to_i, to_int, floor, ceil, truncate, round, 
+gcd, lcm, gcdlcm, numerator, denominator, to_r, rationalize, 
+singleton_method_added, coerce, i, +@, eql?, quo, remainder, 
+real?, nonzero?, step, to_c, real, imaginary, imag, abs2, arg, angle, 
+phase, rectangular, rect, polar, conjugate, conj, <b>between?</b>, nil?, =~, 
+!~, hash, class, singleton_class, clone, dup, initialize_dup, 
+initialize_clone, taint, tainted?, untaint, untrust, untrusted?, trust, 
+freeze, frozen?, inspect, methods, singleton_methods, protected_methods, 
+private_methods, public_methods, instance_variables, instance_variable_get, 
+instance_variable_set, instance_variable_defined?, instance_of?, kind_of?, 
+is_a?, tap, send, public_send, respond_to?, respond_to_missing?, extend, 
+display, method, public_method, define_singleton_method, object_id, to_enum, 
+enum_for, equal?, !, !=, instance_eval, instance_exec, __send__, __id__]
 </pre>
      
     </article>
@@ -676,21 +737,6 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
 '{Seconds/day: #{24*60*60}'      # => Seconds/day: #{24*60*60}
 </pre>
     <pre class="prettyprint shadow" data-lang="javascript">
-'con' "cat" 'en' "ate"           # => concatenate
-</pre>
-    <pre class="prettyprint shadow" data-lang="javascript">
-"Ukraine on Rails".split(' ')    #=> ["Ukraine", "on", "Rails"]
-</pre>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>String</h2>
-    </hgroup>
-    <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
 print <<-eos                      
 Double  quoted \ here document.   
 It is #{Time.now}                 
@@ -699,15 +745,61 @@ eos
 # => Double  quoted  here document.
 # => It is 2012-10-11 22:53:35 +0300
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
-print <<-'eos'
-Double  quoted here document.       
-It is #{Time.now}                   
-eos
 
-# => Double  quoted  here document.
-# => It is #{Time.now} 
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>String</h2>
+      <h3>Concatenation</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+'con' + "cat" + 'en' + "ate"             # => concatenate
+
+'con' "cat" 'en' "ate"                   # => concatenate
+
+some_string = 'con'
+ 
+some_string &lt;&lt; "cat" &lt;&lt; 'en' &lt;&lt; "ate"
+
+some_string                               # => concatenate
+
 </pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>String: <a href="http://ruby-doc.org/core-1.9.3/String.html">Usefull Methods</a> </h2>
+      <pre class="prettyprint shadow" data-lang="javascript">
+"Some String".methods
+</pre>
+    </hgroup>
+    <article>
+          
+<pre class="prettyprint shadow console" data-lang="javascript">
+[<=>, ==, ===, eql?, hash, casecmp, +, *, %, [], []=, <b>insert</b>, <b>length</b>, <b>size</b>, 
+bytesize, <b>empty?</b>, =~, <b>match</b>, succ, succ!, <b>next</b>, next!, <b>upto</b>, <b>index</b>, rindex, 
+<b>replace</b>, clear, chr, getbyte, setbyte, byteslice, <b>to_i</b>, to_f, to_s, to_str, 
+inspect, dump, <b>upcase</b>, <b>downcase</b>, <b>capitalize</b>, <b>swapcase</b>, upcase!, downcase!, 
+capitalize!, swapcase!, hex, oct, <b>split</b>, lines, bytes, <b>chars</b>, codepoints, 
+<b>reverse</b>, reverse!, <b>concat</b>, <<, prepend, crypt, intern, to_sym, ord, <b>include?</b>, 
+<b>start_with?</b>, end_with?, <b>scan</b>, ljust, rjust, center, sub, <b>gsub</b>, chop, chomp, 
+<b>strip</b>, lstrip, rstrip, sub!, gsub!, chop!, chomp!, strip!, lstrip!, rstrip!, 
+tr, tr_s, <b>delete</b>, squeeze, <b>count</b>, tr!, tr_s!, delete!, squeeze!, <b>each_line</b>, 
+each_byte, each_char, each_codepoint, sum, <b>slice</b>, slice!, <b>partition</b>, rpartition, 
+encoding, force_encoding, valid_encoding?, ascii_only?, unpack, encode, encode!, 
+to_r, to_c, >, >=, <, <=, between?, nil?, !~, class, singleton_class, clone, 
+dup, initialize_dup, initialize_clone, taint, tainted?, untaint, untrust, 
+untrusted?, trust, freeze, frozen?, methods, singleton_methods, protected_methods, 
+private_methods, public_methods, instance_variables, instance_variable_get, 
+instance_variable_set, instance_variable_defined?, instance_of?, kind_of?, ...]
+</pre>
+     
     </article>
   </slide>
 
@@ -722,20 +814,24 @@ eos
 
 #=> ['this', :is, 1, "Array", [1,2,3], "pebbles result"]
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
+
+    <pre class="prettyprint shadow" data-lang="javascript">
+Array.new(4, "mac")             #=> ["mac", "mac", "mac", "mac"] 
+
+Array.new(4) { Hash.new }       #=> [{}, {}, {}, {}]
+
+Array(0..9)                     # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Array.new(10){|e| e=e*2 }       # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18] 
+</pre>
+
+    <pre class="prettyprint shadow" data-lang="javascript">
 %w(monkey fish lion dog cat -#{Time.now}-)
 %W(monkey fish lion dog cat -#{Time.now}-)
 
 #=> ["monkey", "fish", "lion", "dog", "cat", "-\#{Time.now}-"] 
 #=> ["monkey", "fish", "lion", "dog", "cat", "-2012-10-11 23:03:18-"] 
 </pre>
-    <pre class="prettyprint shadow" data-lang="javascript">
-Array.new(4, "mac")          # => ["mac", "mac", "mac", "mac"] 
-
-Array(0..9)                  # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-Array.new(10){|e| e=e*2 }    # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18] 
-</pre>
 
     </article>
   </slide>
@@ -744,23 +840,27 @@ Array.new(10){|e| e=e*2 }    # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
   <slide>
     <hgroup>
       <h2>Array</h2>
+      <h3>Accessing elements</h3>
     </hgroup>
     <article>
       <pre class="prettyprint shadow" data-lang="javascript">
-languages = 'Ruby', 'Java', 'C#', 'PHP' 
-# => ["Ruby", "Java", "C#", "PHP"] 
+languages = 'Ruby', 'Java', 'C#', 'PHP'       # => ["Ruby", "Java", "C#", "PHP"] 
 </pre>
 
       <pre class="prettyprint shadow" data-lang="javascript">
 languages[0]            # => "Ruby" 
-languages[1]            # => "Java" 
+languages.at(2)         # => "C#"
 languages[4]            # => nil 
 languages[2..3]         # => ["C#", "PHP"] 
+languages.take(3)       # => ["Ruby", "Java", "C#"]
 languages[-2]           # => "C#" 
 languages.sort          # => ["C#", "Java", "PHP", "Ruby"] 
 languages.length        # => 4 
 languages.first         # => "Ruby" 
 languages.last          # => "PHP" 
+
+languages[1] = "JavaScript"
+languages               # => ["Ruby", "JavaScript", "C#", "PHP"] 
 </pre>
 
     </article>
@@ -770,6 +870,7 @@ languages.last          # => "PHP"
   <slide>
     <hgroup>
       <h2>Array</h2>
+      <h3>Concatenation</h3>
     </hgroup>
     <article>
       <pre class="prettyprint shadow" data-lang="javascript">
@@ -856,6 +957,38 @@ colors.delete("blue")   # colors: ['red']
 
   <slide>
     <hgroup>
+      <h2>Array: <a href="http://ruby-doc.org/core-1.9.3/Array.html">Usefull Methods</a> </h2>
+      <pre class="prettyprint shadow" data-lang="javascript">
+[1, 2, 3].methods
+</pre>
+    </hgroup>
+    <article>
+          
+<pre class="prettyprint shadow console" data-lang="javascript">
+[<b>inspect</b>, to_s, to_a, to_ary, frozen?, ==, eql?, hash, [], []=, at, fetch, <b>first</b>, 
+<b>last</b>, concat, <<, <b>push</b>, <b>pop</b>, shift, <b>unshift</b>, <b>insert</b>, <b>each</b>, <b>each_index</b>, 
+reverse_each, length, <b>size</b>, empty?, <b>find_index</b>, index, rindex, <b>join</b>, <b>reverse</b>, 
+reverse!, rotate, rotate!, <b>sort</b>, sort!, sort_by!, <b>collect</b>, collect!, <b>map</b>, map!, 
+<b>select</b>, select!, keep_if, values_at, delete, <b>delete_at</b>, <b>delete_if</b>, <b>reject</b>, reject!, 
+<b>zip</b>, transpose, replace, clear, fill, <b>include?</b>, <=>, <b>slice</b>, slice!, assoc, rassoc, 
++, *, -, &, |, <b>uniq</b>, uniq!, <b>compact</b>, compact!, <b>flatten</b>, flatten!, count, shuffle!, 
+<b>shuffle</b>, <b>sample</b>, cycle, permutation, combination, repeated_permutation, 
+repeated_combination, product, take, take_while, drop, drop_while, pack, entries, 
+sort_by, grep, <b>find</b>, detect, find_all, flat_map, collect_concat, <b>inject</b>, reduce, 
+partition, <b>group_by</b>, all?, <b>any?</b>, one?, none?, <b>min</b>, <b>max</b>, minmax, min_by, max_by, 
+minmax_by, member?, <b>each_with_index</b>, each_entry, each_slice, each_cons, 
+each_with_object, chunk, slice_before, nil?, ===, =~, !~, class, singleton_class, 
+clone, dup, initialize_dup, initialize_clone, taint, tainted?, untaint, untrust, 
+untrusted?, trust, freeze, methods, singleton_methods, protected_methods, 
+private_methods, public_methods, instance_variables, instance_variable_get, ...]
+</pre>
+     
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
       <h2>Hash</h2>
     </hgroup>
     <article>
@@ -883,6 +1016,38 @@ h[12]             # => "dodecine"
 
     </article>
   </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Hash: <a href="http://ruby-doc.org/core-1.9.3/Hash.html">Usefull Methods</a> </h2>
+      <pre class="prettyprint shadow" data-lang="javascript">
+{one: 1}.methods
+</pre>
+    </hgroup>
+    <article>
+          
+<pre class="prettyprint shadow console" data-lang="javascript">
+[rehash, to_hash, <b>to_a</b>, inspect, to_s, ==, [], hash, eql?, fetch, []=, 
+store, default, default=, default_proc, default_proc=, <b>key</b>, index, size, 
+<b>length</b>, empty?, <b>each_value</b>, <b>each_key</b>, <b>each_pair</b>, each, <b>keys</b>, <b>values</b>, 
+<b>values_at</b>, shift, <b>delete</b>, delete_if, <b>keep_if</b>, <b>select</b>, select!, <b>reject</b>, 
+reject!, clear, <b>invert</b>, <b>update</b>, <b>replace</b>, merge!, <b>merge</b>, assoc, rassoc, 
+<b>flatten</b>, <b>include?</b>, member?, <b>has_key?</b>, <b>has_value?</b>, key?, value?, 
+compare_by_identity, compare_by_identity?, entries, <b>sort</b>, sort_by, grep, 
+count, <b>find</b>, detect, find_index, find_all, collect, <b>map</b>, flat_map, 
+collect_concat, <b>inject</b>, reduce, partition, group_by, first, all?, any?, 
+one?, none?, min, max, minmax, min_by, max_by, minmax_by, each_with_index, 
+reverse_each, each_entry, each_slice, each_cons, each_with_object, zip, 
+take, take_while, drop, drop_while, cycle, chunk, slice_before, nil?, 
+===, =~, !~, <=>, class, singleton_class, clone, dup, initialize_dup, 
+initialize_clone, taint, tainted?, untaint, untrust, untrusted?, trust, 
+freeze, frozen?, methods, singleton_methods, protected_methods, 
+private_methods, public_methods, instance_variables, instance_variable_get,...]
+
+</pre>
+      </article>
+    </slide>
 
 
   <slide>
