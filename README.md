@@ -1,12 +1,12 @@
 
 ## TODO:
   - styleguide
-  - usefull methods: Array.methods and highlight some
   - re-draw Class Hierarhy 
   - http://iwanttolearnruby.com
   - http://rubylearning.com/blog/2010/09/22/14-ways-to-have-fun-coding-ruby/
   - rubykoans
   - some home tasks
+  - common iterators examples
 
 
 

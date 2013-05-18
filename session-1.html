@@ -806,6 +806,33 @@ instance_variable_set, instance_variable_defined?, instance_of?, kind_of?, ...]
 
   <slide>
     <hgroup>
+      <h2>Symbol</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+:my_variable        # => :my_variable
+</pre>
+
+      <br><br>
+      Symbol vs String
+      <br><br>
+      <pre class="prettyprint shadow" data-lang="javascript">
+:ruby_rules.object_id           #=> 460328
+:ruby_rules.object_id           #=> 460328
+</pre>
+      
+      <pre class="prettyprint shadow" data-lang="javascript">
+"ruby_rules".object_id          #=> 70350918711920
+"ruby_rules".object_id          #=> 70350918734000
+</pre>
+
+    </article>
+  </slide>
+
+
+
+  <slide>
+    <hgroup>
       <h2>Array</h2>
     </hgroup>
     <article>
@@ -957,6 +984,30 @@ colors.delete("blue")   # colors: ['red']
 
   <slide>
     <hgroup>
+      <h2>Array</h2>
+      <h3>Iterators</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+colors = ['red', 'green', 'blue']
+
+colors.each {|color| print "#{color.capitalize}, " }                   
+#=> Red, Green, Blue,
+
+colors.each_index {|i| print "#{i}: #{colors[i]}, " }                  
+#=> 0: red, 1: green, 2: blue,
+
+colors.each_with_index {|color, i| print "#{i}: #{color}, " } 
+#=> 0: red, 1: green, 2: blue,
+
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
       <h2>Array: <a href="http://ruby-doc.org/core-1.9.3/Array.html">Usefull Methods</a> </h2>
       <pre class="prettyprint shadow" data-lang="javascript">
 [1, 2, 3].methods
@@ -1020,6 +1071,39 @@ h[12]             # => "dodecine"
 
   <slide>
     <hgroup>
+      <h2>Hash</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+names = Hash.new('male')
+
+names[:alex]                    #=> 'male'
+
+</pre>
+
+    <pre class="prettyprint shadow" data-lang="javascript">
+hash = {"dog"=>"canine", "cat"=>"feline", :bird=>"papuga", 12=>"dodecine"}
+
+hash.delete(:bird)         #=>  {"dog"=>"canine", "cat"=>"feline", 12=>"dodecine"}
+
+hash.delete_if{|k, v|  v.length > 6 }       #=> {"dog"=>"canine", "cat"=>"feline"}
+
+hash.keep_if{|k, v|  k == 'cat' }           #=> {"cat"=>"feline"}
+</pre>
+
+    <pre class="prettyprint shadow" data-lang="javascript">
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+ 
+h1.merge(h2)                                #=> {"a"=>100, "b"=>254, "c"=>300}
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
       <h2>Hash: <a href="http://ruby-doc.org/core-1.9.3/Hash.html">Usefull Methods</a> </h2>
       <pre class="prettyprint shadow" data-lang="javascript">
 {one: 1}.methods
@@ -1048,38 +1132,6 @@ private_methods, public_methods, instance_variables, instance_variable_get,...]
 </pre>
       </article>
     </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>Symbol</h2>
-    </hgroup>
-    <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
-:my_variable        # => :my_variable
-</pre>
-
-      <br><br>
-      Symbol vs String
-      <br><br>
-      <pre class="prettyprint shadow" data-lang="javascript">
-first_symbol  = :ruby_rules
-second_symbol = :ruby_rules
-
-first_symbol.object_id          #=> 460328
-second_symbol.object_id         #=> 460328
-</pre>
-      
-      <pre class="prettyprint shadow" data-lang="javascript">
-first_string  = "ruby_rules"
-second_string = "ruby_rules"
-
-first_string.object_id          #=> 70350918711920
-second_string.object_id         #=> 70350918734000
-</pre>
-
-    </article>
-  </slide>
 
 
   <slide>
@@ -1136,6 +1188,117 @@ words.each {|word| puts 'Hello ' + word }
 # => Hello cac
 # ...
 # => Hello car
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Time</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+time = Time.new
+
+time            # => 2012-10-15 18:09:32 +0300 
+time.year       # => 2012
+time.month      # => 10
+time.day        # => 15
+time.wday       # => 1
+time.yday       # => 289
+time.hour       # => 18
+time.min        # => 9
+time.sec        # => 32
+time.zone       # => "EEST"
+time.to_i       # => 1350313772
+
+time.strftime("%Y-%m-%d %H:%M:%S")  # => "2012-10-15 18:09:32"
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>File</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+File.new("temp.txt", "w")          # => #&lt;File:temp.txt> 
+
+file = File.open("temp.txt", "r")  # => #&lt;File:temp.txt> 
+file.closed?                          # => false
+File.rename("tempf.txt", "newf.txt")  # => 0
+File.delete "newf.txt"                # => 1
+File.exists? "temp.txt"               # => true
+File.file?(".")                       # => false
+File.directory?(".")                  # => true
+File.readable?("temp.txt")            # => true
+File.writable?("temp.txt")            # => true
+File.executable?("temp.txt")          # => false
+File.ftype("temp.txt")                # => "file"
+File.ftype(".")                       # => "directory"
+
+file.each {|line| print line}
+
+File.join("usr", "alex", "work")      #=> "usr/alex/work"
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Dir</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+Dir.entries "."
+
+# => [".", "..", ".git", ".gitignore", ".rvmrc", "app", "config", 
+# "config.ru", "db", "doc", "Gemfile", "Gemfile.lock", "lib", 
+# "log", "public", "Rakefile", "README.textile", "script", 
+# "test", "tmp", "vendor"] 
+
+Dir.foreach('.') {|file| puts file}
+
+Dir.glob("*.*")                #=> ["config.ru", "Gemfile.lock", "README.textile"]
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Struct</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint shadow" data-lang="javascript">
+Customer = Struct.new(:name, :address, :zip)       #=> Customer
+ 
+joe = Customer.new("Joe Smith", "123 Maple, Anytown NC", 12345)
+#=> #&lt;struct Customer name="Joe Smith", address="123 Maple, Anytown NC", zip=12345>
+ 
+joe.name
+joe["name"]
+joe[:name]
+joe[0]
+=> "Joe Smith"
+</pre>
+
+    <pre class="prettyprint shadow" data-lang="javascript">
+Customer = Struct.new(:name, :address) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+Customer.new("Dave", "123 Main").greeting         #=> "Hello Dave!"
 </pre>
 
     </article>
