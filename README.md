@@ -8,6 +8,7 @@
   - some home tasks
   + common iterators examples
   - add ruby implementation logos
+  - self (add slides)
 
 
 

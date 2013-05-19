@@ -39,20 +39,489 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
+  <slide class="without_box">
     <hgroup>
       <h2>Agenda</h2>
     </hgroup>
-    <article>
-      <ul>
-        <li>Methods</li>
-        <li>Classes</li>
-      </ul>
+    <article class="slide-agenda" style="margin-left: 150px">
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="green_text">Classes</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="red_text">Modules</span>
+        </div>
     </article>
   </slide>
 
 
+  <slide>
+    <hgroup>
+      <h2>Class <small>Define Class and Object</small></h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+end
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book = BookInStock.new
+book.class                  # => BookInStock
+book.is_a? BookInStock      # => true
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Initialize</small></h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+end
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+cucumber = BookInStock.new("The Cucumber Book", "Matt Wynne", 38)
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+puts smart_home      # => #&lt;BookInStock:0x007ff31d9209d8>
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>to_s method</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+ 
+  def to_s
+    "Book: #{@title} / #{@author}, #{@price}"
+  end
+end
+
+book = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+book.to_s # => Book: The Great Gatsby / F. Scott Fitzgerald, 8.99
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+puts smart_home.title
+# => NoMethodError: undefined method 'title' for #&lt;BookInStock:0x00..>
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Getter and Setter</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+ 
+  def title
+    @title
+  end
+ 
+  def title=(value)
+    @title = value
+  end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+book.title                              # => The Great Gatsby
+book.title = "This Side of Paradise"
+book.title                              # => This Side of Paradise
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Attributes Accessor</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_accessor :title
+  attr_writer :author
+  attr_reader :price
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+end
+
+book = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+ 
+book.title = "This Side of Paradise"
+book.title                    # => This Side of Paradise
+book.author = "Fitzgerald"
+book.author                   # => NoMethodError: undefined method 'author'
+book.price                    # => 8.99
+book.price = 10               # => NoMethodError: undefined method 'price='
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Virtual attributes</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+ 
+  def price_in_cents
+    Integer(@price * 100 + 0.5)
+  end
+ 
+  def price_in_cents=(value)
+    @price = value / 100.0
+  end
+end
+book = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99) 
+book.price_in_cents = 100
+book.price                   # => 1.0
+book.price_in_cents          # => 100
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Defining operators</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+ 
+  def +(other)
+    BookInStock.new( "#{@title}, #{other.title}", "#{@author} and #{other.author}", 
+                      @price+other.price )
+  end
+end
+fitzgerald_book  = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+hemigway_book    = BookInStock.new("The Old Man and the Sea ", "E.Hemingway", 7.6)
+books_collection = fitzgerald_book + hemigway_book
+ 
+books_collection.title  # => The Great Gatsby, The Old Man and the Sea
+books_collection.author # => F. Scott Fitzgerald and E.Hemingway
+books_collection.price  # => 16.59
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Objects comparasion</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book1 = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)      
+# => BookInStock:0x00000000e71cb0
+
+book2 = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)      
+# => BookInStock:0x00000000e553f8
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book1 == book2              # => false
+</pre>
+    </article>
+  </slide>
+
   
+  <slide>
+    <hgroup>
+      <h2>Class <small>Define equality method</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+ 
+  def ==(other)
+    if other.is_a? BookInStock
+      @title == other.title && @author == other.author && @price == other.price
+    else
+      false
+    end
+  end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book1 == book2            # => true
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Class method</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+  end
+ 
+  def self.total_amount(*books)
+    books.map(&:price).inject(0, &:+)
+  end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book1 = BookInStock.new("some title", "some author", 10)
+book2 = BookInStock.new("another one title", "another one author", 20)
+
+BookInStock.total_amount(book1, book2) # => 30.0
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Class variables</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  @@count = 0
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+    @@count += 1
+  end
+ 
+  def self.statistics
+    "Count of books: " + @@count.to_s
+  end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+5.times{ BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99) }
+BookInStock.statistics          # => Count of books: 5
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Class instance variables</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  attr_reader :title, :author, :price
+ 
+  @count = 0
+ 
+  def initialize(title, author, price)
+    @title, @author, @price = title, author, Float(price)
+    # @count += 1  NoMethodError: undefined method '+' for nil:NilClass
+  end
+ 
+  def self.add; @count += 1; end
+ 
+  def self.statistics; "Count of add method call: #{@count}"; end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+5.times{ BookInStock.add }
+BookInStock.statistics # => Count of add method call: 5
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Constants</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  PUBLISHING = "Book House"
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+BookInStock::PUBLISHING           # => Books House
+ 
+BookInStock::MIN_PRICE = 10
+BookInStock::MIN_PRICE            # => 10
+ 
+BookInStock::MIN_PRICE = 20       # => warning: already initialized constant
+BookInStock::MIN_PRICE            # => 20
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Scope</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+v1 = 1
+ 
+class MyClass
+  v2 = 2
+  local_variables   # => [:v2]
+ 
+  def my_method
+    v3 = 3
+    local_variables
+  end
+ 
+  local_variables   # => [:v2]
+end
+ 
+obj = MyClass.new
+obj.my_method       # => [:v3]
+local_variables     # => [:v1, :obj]
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Method Access Control</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class MyClass
+  def method1       # default is public
+  end
+
+  protected
+
+    def method2       # will be protected
+    end
+
+  private
+
+    def method3       # will be private
+    end
+
+  public
+
+    def method1       # will be public
+    end
+end
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Method visibility <small>public, protected, private</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock
+  def buy_with(other)
+    discount + other.discount # self.discount + other.discount
+  end
+ 
+  def full_cost
+    @price + tax      # self.tax  # => NoMethodError: private method 'tax' called
+  end
+ 
+  def tax_for_two(other) # error
+    tax + other.tax      # you can use private method only for self
+  end
+ 
+  protected
+    def discount; @price * 0.9; end
+ 
+  private
+    def tax; @price * 0.2; end
+end
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Method visibility <small>public, protected, private</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+fitzgerald_book  = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald", 8.99)
+hemigway_book    = BookInStock.new("The Old Man and the Sea ", "E.Hemingway", 7.6)
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+fitzgerald_book.buy_with hemigway_book    # => 14.93
+fitzgerald_book.full_cost                 # => 10.78
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+fitzgerald_book.discount                  
+# => NoMethodError: protected method 'discount' called
+
+fitzgerald_book.tax_for_two hemigway_book 
+# => NoMethodError: private method 'tax' called
+</pre>
+    </article>
+  </slide>
+
 
 
 

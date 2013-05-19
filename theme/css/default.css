@@ -349,7 +349,7 @@ slides > slide.backdrop:after, slides > slide.backdrop:before {
 }
 /* line 180, ../scss/default.scss */
 slides > slide > hgroup + article {
-  margin-top: 45px;
+  margin-top: 20px;
 }
 /* line 184, ../scss/default.scss */
 slides > slide > hgroup + article.flexbox.vcenter, slides > slide > hgroup + article.flexbox.vleft, slides > slide > hgroup + article.flexbox.vright {
@@ -557,7 +557,7 @@ code {
 /* line 374, ../scss/default.scss */
 iframe {
   width: 100%;
-  height: 530px;
+  height: 580px;
   background: white;
   border: 1px solid #e6e6e6;
   -webkit-box-sizing: border-box;
