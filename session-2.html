@@ -39,21 +39,717 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
+  <slide class="without_box">
     <hgroup>
       <h2>Agenda</h2>
     </hgroup>
+    <article class="slide-agenda" style="margin-left: 150px">
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="green_text">Control Structures</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="red_text">Methods</span>
+        </div>
+        <div class="item">
+          <img src="images/title_logo.png" />
+          <span class="blue_text">Code Blocks</span>
+        </div>
+    </article>
+  </slide>
+
+  
+  <slide class="segue linen nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Control Structures</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>If, Unless</h2>
+    </hgroup>
     <article>
-      <ul>
-        <li>Control Structures</li>
-        <li>Code Blocks</li>
-        <li>Methods</li>
-      </ul>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+a = 5 
+
+if a == 4 
+  a = 7
+end                         # a => 5
+
+if a == 4 then a = 7 end    # a => 5
+
+a = 7 if a == 4             # a => 5
+
+unless a == 4
+  a = 7
+end                         # a => 7
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>If, Else</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+a = 1
+ 
+res = if a < 5
+        "#{a} less than 5"
+      elsif a > 5
+        "#{a} greater than 5"
+      else
+        "#{a} equals 5"
+      end
+ 
+res
+
+#=> "1 less than 5"
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+to_be_or_not = true ? '1' : '0'        # => '1'
+to_be_or_not = false ? '1' : '0'       # => '0'
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Or, And</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+nil   && 99     => nil                        nil   || 99     => 99
+false && 99     => false                      false || 99     => 99
+'cat' && 99     => 99                         'cat' || 99     => 'cat'
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+if y
+ x = y
+else
+  x = z
+end
+
+x = y || z
+</pre>
+  <pre class="prettyprint linenums shadow" data-lang="ruby">
+unless x
+  x = y
+end
+
+x ||= y
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Case, when</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+a = 1
+
+r = case a
+  when a < 5
+    "#{a} less than 5"
+  when a == 5
+    "#{a} equals than 5"
+  when a > 5
+    "#{a} greather than 5"
+end
+
+#=> "1 less than 5"
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Case, when</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+a = 1
+
+case a
+  when 0...5
+    "#{a} greater than 0 less than 5"
+  when 5
+    "#{a} equals 5"
+  when 5..Float::INFINITY
+    "#{a} greater than 5"
+  else
+    "#{a} less than 0"
+end
+
+#=> "1 greater than 0 less than 5"
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Loops</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+x = 0
+puts x+= 2 while x < 10               #=> 2 4 6 8 10
+
+y = 2**6
+puts y /= 2 until y <= 1              #=> 32 16 8 2 4 1
+
+</pre>
+
+  <pre class="prettyprint linenums shadow" data-lang="ruby">
+x = 0
+loop do
+  x += 2
+  break if x >= 20
+  next if x == 6
+  puts x
+end                                   #=> 2 4 8 10 12 14 16 18
+</pre>
+
+    <span class="mark_blue">break</span> – Terminate the whole loop
+    <span class="mark_blue">next</span> – Jump to the next loop
+    <br>
+    <span class="mark_blue">retry</span> – Start the whole loop over
+    <span class="mark_blue">redo</span> – Redo this loop
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Iterators</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+for i in 1..5 do
+  puts i                  # => 1 2 3 4 5
+end
+
+5.times do |i|
+  puts i                  # => 0 1 2 3 4
+end
+
+1.upto(5) do |i|
+  puts i                  # => 1 2 3 4 5
+end
+
+5.downto(1) do |i|
+  puts i                  # => 5 4 3 2 1
+end
+
+(1..5).each do |i|
+  puts i                  # => 1 2 3 4 5
+end
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Usefull Iterators</h2>
+    </hgroup>
+    <article>
+      <h3>Number <span class="mark_green">times</span> <span class="mark_green">upto</span> <span class="mark_green">downto</span> <span class="mark_green">step</span></h3>
+
+      <h3>Range&nbsp;&nbsp;&nbsp;&nbsp; <span class="mark_blue">each</span> <span class="mark_blue">step</span></h3>
+
+      <h3>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="mark_purple">each</span> <span class="mark_purple">each_line</span> <span class="mark_purple">each_byte</span></h3>
+
+      <h3>Array&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="mark_orange">each</span> <span class="mark_orange">each_index</span> <span class="mark_orange">each_with_index</span></h3>
+      
+      <h3>Hash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="mark_red">each</span> <span class="mark_red">each_key</span> <span class="mark_red">each_value</span> <span class="mark_red">each_pair</span></h3>
+
+    </article>
+  </slide>
+
+
+  <slide class="segue linen nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Methods</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods</h2>
+      <h3>Definition, Optional Arguments</h3>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def my_method
+  # Code for the method would be here
+end
+def my_method_with_arguments(arg1, arg2, arg3)
+  # Code for the method would be here
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def cool_dude(arg1="Miles", arg2="Coltrane", arg3="Roach")
+  "#{arg1}, #{arg2}, #{arg3}."
+end
+
+cool_dude                                   # => "Miles, Coltrane, Roach."
+cool_dude 'Bart'                            # => "Bart, Coltrane, Roach."
+cool_dude('Bart', 'Elwood')                 # => "Bart, Elwood, Roach."
+cool_dude('Bart', 'Elwood', 'Linus')        # => "Bart, Elwood, Linus."
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods</h2>
+      <h3>Argument value can be calculated</h3>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def surround(word, pad_width=word.length/2)
+  "[" * pad_width + word + "]" * pad_width
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+surround 'elephant'             # => "[[[[elephant]]]]"
+surround 'fox'                  # => "[fox]"
+surround 'fox', 10              # => "[[[[[[[[[[fox]]]]]]]]]]"
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods</h2>
+      <h3>Unlimited Arguments</h3>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def varrargs(arg1, *rest)
+  "arg1=#{arg1}. rest=#{rest.inspect}"
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+varrargs 'one'                      # => "arg1=one. rest=[]"
+varrargs 'one', 'two'               # => "arg1=one. rest=['two']"
+varrargs 'one', 'two', 'three'      # => "arg1=one. rest=['two', 'three']"
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods</h2>
+      <h3>Unlimited Arguments</h3>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def split_apart(first, *splat, last)
+  "first=#{first.inspect} splat=#{splat.inspect} last=#{last.inspect}"
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+split_apart 1, 2                  # => "first=1 splat=[] last=2"
+split_apart 1, 2, 3               # => "first=1 splat=[2] last=3"
+split_apart 1, 2, 3, 4            # => "first=1 splat=[2, 3] last=4"
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Returns Values</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def meth_one
+  "one"
+end
+
+meth_one        # => "one"
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def meth_two(arg)
+  if arg > 0  
+    "positive"
+  elsif arg < 0 
+    "negative"
+  else
+    "zero"
+  end
+end
+
+meth_two(23)       # => "positive"
+meth_two(0)        # => "zero"
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Returns Values</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def meth_three
+  100.times do |num|
+    square = num * num
+    return num, square if square > 1000
+  end
+end
+
+meth_three                # => [32, 1024]
+</pre>
+    
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+num, square = meth_three
+
+num              # => 32
+square           # => 1024
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Naming Conventions</small> ?</h2>
+    </hgroup>
+    <article>
+
+      <span class="mark_red"> ? </span> - return <span class="mark_green">true</span> or <span class="mark_green">false</span>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+movie = ""
+movie.empty?                    #=> true
+ 
+movie = "Goonies"
+movie.empty?                    #=> false
+
+movie.include?("G")             #=> true
+movie.include?("x")             #=> false
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Naming Conventions</small> !</h2>
+    </hgroup>
+    <article>
+      <span class="mark_red"> ! </span> - <span class="mark_green">change</span> current <span class="mark_green">object</span>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+movie = "Ghostbusters"          #=> "Ghostbusters"
+ 
+movie.reverse                   #=> "sretsubtsohG"
+movie                           #=> "Ghostbusters"
+ 
+movie.reverse!                  #=> "sretsubtsohG"
+movie                           #=> "sretsubtsohG"
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Blocks</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def double(p1)
+  yield(p1*2)
+end
+
+double(3) {|val| "I got #{val}" }        # => "I got 6"
+
+double("tom") do |val|
+  "Then I got #{val}" 
+end                                      # => "Then I got tomtom"
+</pre>
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Block Given?</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def try
+  if block_given?
+    yield
+  else
+    'no block'
+  end
+end
+</pre>
+  <pre class="prettyprint linenums shadow" data-lang="ruby">
+try                           # => "no block"
+try { 'hello' }               # => "hello"
+try do 'hello' end            # => "hello"
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Closures</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def thrice
+  yield
+  yield
+  yield
+end
+
+x = 5
+puts "value of x before: #{x}"         #=> 'value of x before: 5'
+ 
+thrice { x += 1 }
+ 
+puts "value of x after: #{x}"          #=> 'value of x after: 8'
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Methods <small>Method to object</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def square(n)
+  n ** 2
+end
+ 
+square_obj = method(:square)
+ 
+square_obj.class                    #=> Method
+ 
+square_obj.call(4)                  #=> 16
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Operators are Methods</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+num = 12          #=> 12
+ 
+num * 2           #=> 24
+ 
+num.*(2)          #=> 24
+</pre>  
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+array << 4              array.<<(4)   
+
+array[2]                array.[](2)
+
+array[2]= ‘x’           array.[]=(2, ‘x’)
+</pre> 
+
+    
+    </article>
+  </slide>
+
+
+  <slide class="segue linen nobackground">
+    <aside class="gdbar"><img src="images/title_logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Code Blocks</h2>
+      <h3>&nbsp;</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Code Blocks <small>Convert the block to a Proc</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def thrice
+  yield
+  yield
+  yield
+end
+ 
+def seven_times(&block)
+  block.call
+  thrice(&block)
+  thrice(&block)
+end
+ 
+x = 4
+ 
+seven_times { x += 10 }               #=> 74
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Code Blocks <small>Proc aka procedure</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+def what_am_i(&block)
+  block.class
+end
+ 
+what_am_i {}                 #=> Proc
+</pre>  
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+square = Proc.new do |n|
+  n ** 2
+end
+ 
+square.call(2)                #=> 4
+ 
+square.call(4)                #=> 16
+</pre>  
+    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Code Blocks <small>Anonymous Method</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+bo = lambda {|param| "You called me with #{param}"}
+
+bo.call 99                      #=> "You called me with 99"
+bo.call 'cat'                   #=> "You called me with cat"
+</pre>  
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Code Blocks <small>Proc vs lambda</small></h2>
+    </hgroup>
+    <article>
+
+      <span class="mark_green">Lambdas</span> check the <span class="mark_red">number of arguments</span>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+def args(code)
+  one, two = 1, 2
+  code.call(one, two)
+end
+</pre>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+args(Proc.new{|a, b, c| puts "Give me a #{a} and b #{b} and c #{c}"})
+#=> Give me a 1 and b 2 and c
+</pre>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+args(lambda{|a, b, c| puts "Give me a #{a} and b #{b} and c #{c}"})
+#=> ArgumentError: wrong number of arguments (2 for 3)
+</pre>  
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Code Blocks <small>Proc vs lambda</small></h2>
+    </hgroup>
+    <article>
+
+      <span class="mark_green">Lambdas</span> have <span class="mark_red">lesser returns</span>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+def proc_return
+  Proc.new { return "Proc.new" }.call
+  return "proc_return return"
+end
+ 
+proc_return                          #=> "Proc.new"
+</pre>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+def lambda_return
+  lambda { return "lambda" }.call
+  return "lambda_return return"
+end
+ 
+ 
+lambda_return                        #=> "lambda_return return"
+</pre>  
+    </article>
+  </slide>
+
+
+  <slide class="without_box">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>show Number</li>
+          <li>show String</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <!-- <h2>Objects</h2> -->
+    </hgroup>
+    <article>
+      <h3 class="cool_title red_text" style="line-height: 1; font-size: 100px">blocks and Procs <br>
+      <span class="orange_text" style="margin-left: 300px;">act like code snippets</span><br><br>
+      <span class="red_text">lambdas and Methods <br>
+      <span class="orange_text"  style="margin-left: 300px;">act like methods</span></h3>
     </article>
   </slide>
 
 
   
+
+
+
 
 
 

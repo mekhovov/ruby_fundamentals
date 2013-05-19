@@ -4,9 +4,10 @@
   - re-draw Class Hierarhy 
   - http://iwanttolearnruby.com
   - http://rubylearning.com/blog/2010/09/22/14-ways-to-have-fun-coding-ruby/
-  - rubykoans
+  + rubykoans
   - some home tasks
-  - common iterators examples
+  + common iterators examples
+  - add ruby implementation logos
 
 
 

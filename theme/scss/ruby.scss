@@ -85,6 +85,15 @@ slides > slide {
   //$rotateY: 30deg;
   //$rotateX: 45deg;
 
+
+  hgroup h2 small {
+    font-size: 30px;
+    letter-spacing: -1px;
+    line-height: 2;
+    font-weight: inherit;
+    color: #797979;   
+  }
+
   &.far-past {
     //display: block;
     display: none;
@@ -735,6 +744,24 @@ article.smaller {
 }
 .prettyprint .pln {
   color: $gray-4;
+}
+.prettyprint ol.linenums {
+  z-index: 100;
+  list-style-type: decimal;
+  color: #bbb;
+}
+
+.prettyprint ol li:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0px;
+  left: 0;
+  // background-color: rgba(210,210,210,0.5);
+  width: 50px;
+  height: 100%;
+  border-right: 1px #ccc dashed;
+  box-shadow: #eee 1px 1px;
 }
 
 .note {

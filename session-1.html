@@ -330,10 +330,10 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <img src="images/rvm_logo.png" style="position: absolute; top: 0; right:0">
       <br>
-      <pre class="prettyprint shadow console" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~  curl -L https://get.rvm.io | bash -s stable --autolibs=enabled
 </pre>
-      <pre class="prettyprint shadow console" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~  rvm install 1.9.3
 ➜  ~  rvm use 1.9.3
 </pre>
@@ -348,11 +348,11 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <img src="images/rvm_logo.png" style="position: absolute; top: 0; right:0">
       <br>
-      <pre class="prettyprint shadow console" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~  rvm gemset create my_project
 ➜  ~  rvm gemset use my_project
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 # .rvmrc file
 rvm use ruby-1.9.3-head@my_project --create
 </pre>
@@ -410,23 +410,23 @@ rvm use ruby-1.9.3-head@my_project --create
     </hgroup>
     <article>
       Create a file "test.rb"
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 puts "Hello World"
 </pre>
       Run command
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~ ruby test.rb
 </pre>
       <br><br>
       Create a file "test.rb"
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 #!/usr/bin/ruby
 
 puts "Hello World"
 </pre>
 
     Run command
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~  test.rb
 </pre>
      
@@ -441,13 +441,13 @@ puts "Hello World"
     </hgroup>
     <article>
       Just run 'irb' command in tour console
-      <pre class="prettyprint shadow console" data-lang="javascript">
+      <pre class="prettyprint shadow console" data-lang="ruby">
 ➜  ~  irb
 1.9.3-p125 :001 >
 </pre>
       <br><br>
       Type any ruby code and run it
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 1.9.3-p125 :001 > puts "Hello World!"
 Hello World!
  => nil 
@@ -512,7 +512,7 @@ Hello World!
       <h2>Everything is an Object</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "stressed".reverse   #=> "desserts"
 
 "hello".empty?    #=> false
@@ -540,7 +540,7 @@ self.class        #=> Object
       <h2>Variables</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 a = 10
 
 a, b, c, d = 20, "Ruby-Dooby-Doo", Time.now
@@ -566,7 +566,7 @@ defined? y              # "local-variable"
     </hgroup>
     <article>
       Use <span class="green3">snake_case</span> for variables, methods and symbols
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 variable_name = :some_symbol
 
 def some_method
@@ -574,13 +574,13 @@ def some_method
 end
 </pre>
       Use <span class="green3">CamelCase</span> for classes and modules
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 class SomeClass
   ...
 end
 </pre>
       Use <span class="green3">SCREAMING_SNAKE_CASE</span> for other constants
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 SOME_CONST = 5
 </pre>
     <footer>
@@ -624,7 +624,7 @@ SOME_CONST = 5
     </hgroup>
     <article>
       
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 num = 81
 
 6.times do
@@ -633,7 +633,7 @@ num = 81
 end
 </pre>
       
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 Fixnum: 81
 Fixnum: 6561
 Fixnum: 43046721
@@ -653,13 +653,13 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
     </hgroup>
     <article>
       
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 1 + 2       # => 3
 1 + 2.0     # => 3.0
 1.0 + 2     # => 3.0
 </pre>
       
-<pre class="prettyprint shadow" data-lang="javascript">
+<pre class="prettyprint linenums shadow" data-lang="ruby">
 1.0 / 2     # => 0.5
 1 / 2.0     # => 0.5
 1 / 2       # => 0
@@ -672,13 +672,13 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
   <slide>
     <hgroup>
       <h2>Numbers: <a href="http://ruby-doc.org/core-1.9.3/Fixnum.html">Usefull Methods</a> </h2>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 10.methods
 </pre>
     </hgroup>
     <article>
 
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 [to_s, -@, +, -, *, /, div, %, modulo, divmod, fdiv, <b>**</b>, <b>abs</b>, 
 magnitude, ==, ===, <b><=></b>, >, >=, <, <=, ~, &, |, ^, [], <<, >>, 
 to_f, size, <b>zero?</b>, <b>odd?</b>, <b>even?</b>, succ, integer?, <b>upto</b>, <b>downto</b>, <b>times</b>, 
@@ -706,13 +706,13 @@ enum_for, equal?, !, !=, instance_eval, instance_exec, __send__, __id__]
       <h2>String</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "New string"                       # => New string
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "Tro #{'Lo ' * 3} !!"              # => Tro Lo Lo Lo  !!
 </pre>
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 "now is #{def the(a)
             'the' + a
           end
@@ -730,13 +730,13 @@ enum_for, equal?, !, !=, instance_eval, instance_exec, __send__, __id__]
       <h2>String</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "Seconds/day: #{24*60*60}"       # => Seconds/day: 86400
 </pre>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 '{Seconds/day: #{24*60*60}'      # => Seconds/day: #{24*60*60}
 </pre>
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 print <<-eos                      
 Double  quoted \ here document.   
 It is #{Time.now}                 
@@ -756,7 +756,7 @@ eos
       <h3>Concatenation</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 'con' + "cat" + 'en' + "ate"             # => concatenate
 
 'con' "cat" 'en' "ate"                   # => concatenate
@@ -775,13 +775,13 @@ some_string                               # => concatenate
   <slide>
     <hgroup>
       <h2>String: <a href="http://ruby-doc.org/core-1.9.3/String.html">Usefull Methods</a> </h2>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "Some String".methods
 </pre>
     </hgroup>
     <article>
           
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 [<=>, ==, ===, eql?, hash, casecmp, +, *, %, [], []=, <b>insert</b>, <b>length</b>, <b>size</b>, 
 bytesize, <b>empty?</b>, =~, <b>match</b>, succ, succ!, <b>next</b>, next!, <b>upto</b>, <b>index</b>, rindex, 
 <b>replace</b>, clear, chr, getbyte, setbyte, byteslice, <b>to_i</b>, to_f, to_s, to_str, 
@@ -809,19 +809,19 @@ instance_variable_set, instance_variable_defined?, instance_of?, kind_of?, ...]
       <h2>Symbol</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 :my_variable        # => :my_variable
 </pre>
 
       <br><br>
       Symbol vs String
       <br><br>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 :ruby_rules.object_id           #=> 460328
 :ruby_rules.object_id           #=> 460328
 </pre>
       
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 "ruby_rules".object_id          #=> 70350918711920
 "ruby_rules".object_id          #=> 70350918734000
 </pre>
@@ -836,13 +836,13 @@ instance_variable_set, instance_variable_defined?, instance_of?, kind_of?, ...]
       <h2>Array</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 ['this', :is, 1, "Array", [1,2,3], barney("pebbles")]
 
 #=> ['this', :is, 1, "Array", [1,2,3], "pebbles result"]
 </pre>
 
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 Array.new(4, "mac")             #=> ["mac", "mac", "mac", "mac"] 
 
 Array.new(4) { Hash.new }       #=> [{}, {}, {}, {}]
@@ -852,7 +852,7 @@ Array(0..9)                     # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Array.new(10){|e| e=e*2 }       # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18] 
 </pre>
 
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 %w(monkey fish lion dog cat -#{Time.now}-)
 %W(monkey fish lion dog cat -#{Time.now}-)
 
@@ -870,11 +870,11 @@ Array.new(10){|e| e=e*2 }       # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
       <h3>Accessing elements</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 languages = 'Ruby', 'Java', 'C#', 'PHP'       # => ["Ruby", "Java", "C#", "PHP"] 
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 languages[0]            # => "Ruby" 
 languages.at(2)         # => "C#"
 languages[4]            # => nil 
@@ -900,12 +900,12 @@ languages               # => ["Ruby", "JavaScript", "C#", "PHP"]
       <h3>Concatenation</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 days1 = ['Mon', 'Tue', 'Wed']
 days2 = ['Thu', 'Fri', 'Sat', 'Sun']
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 days1 + days2
 # => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
 
@@ -925,12 +925,12 @@ days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
       <h2>Array</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 operating_systems = ['Fedora', 'SuSE', 'RHEL', 'Windows', 'MacOS']
 linux_systems = ['RHEL', 'SuSE', 'PCLinuxOS', 'Ubuntu', 'Fedora']
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 # Union
 operating_systems | linux_systems
 # => ["Fedora", "SuSE", "RHEL", "Windows", "MacOS", "PCLinuxOS", "Ubuntu"] 
@@ -956,7 +956,7 @@ operating_systems.uniq                 # => ["Fedora", "SuSE", "MacOS", "RHEL"]
       <h2>Array</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 colors = ['red', 'green', 'blue']
 
 colors.push 'indigo'    # => ["red", "green", "blue", "indigo"] 
@@ -965,13 +965,13 @@ colors.pop              # => "violet"
 colors.pop              # => "indigo"
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 colors = ['red', 'green', 'blue']
 
 colors[1..2] = 'orange', 'pink'   # colors: ["red", "orange", "pink"] 
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 colors = ['red', 'green', 'blue']
 
 colors.delete_at(1)     # colors: ['red', 'blue']
@@ -988,7 +988,7 @@ colors.delete("blue")   # colors: ['red']
       <h3>Iterators</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 colors = ['red', 'green', 'blue']
 
 colors.each {|color| print "#{color.capitalize}, " }                   
@@ -1009,13 +1009,13 @@ colors.each_with_index {|color, i| print "#{i}: #{color}, " }
   <slide>
     <hgroup>
       <h2>Array: <a href="http://ruby-doc.org/core-1.9.3/Array.html">Usefull Methods</a> </h2>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 [1, 2, 3].methods
 </pre>
     </hgroup>
     <article>
           
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 [<b>inspect</b>, to_s, to_a, to_ary, frozen?, ==, eql?, hash, [], []=, at, fetch, <b>first</b>, 
 <b>last</b>, concat, <<, <b>push</b>, <b>pop</b>, shift, <b>unshift</b>, <b>insert</b>, <b>each</b>, <b>each_index</b>, 
 reverse_each, length, <b>size</b>, empty?, <b>find_index</b>, index, rindex, <b>join</b>, <b>reverse</b>, 
@@ -1043,7 +1043,7 @@ private_methods, public_methods, instance_variables, instance_variable_get, ...]
       <h2>Hash</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 h = {
   'dog' => 'canine',
   'cat' => 'feline',
@@ -1054,14 +1054,14 @@ h = {
 # => {"dog"=>"canine", "cat"=>"feline", :bird=>"papuga", 12=>"dodecine"}
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 h.length          # => 4
 h['dog']          # => "canine"
 h[:bird]          # => "papuga"
 h[12]             # => "dodecine"
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 {hashes: 1, are: 'ordered'}  #=> {:hashes => 1, :are => 'unordered'}
 </pre>
 
@@ -1074,14 +1074,14 @@ h[12]             # => "dodecine"
       <h2>Hash</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 names = Hash.new('male')
 
 names[:alex]                    #=> 'male'
 
 </pre>
 
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 hash = {"dog"=>"canine", "cat"=>"feline", :bird=>"papuga", 12=>"dodecine"}
 
 hash.delete(:bird)         #=>  {"dog"=>"canine", "cat"=>"feline", 12=>"dodecine"}
@@ -1091,7 +1091,7 @@ hash.delete_if{|k, v|  v.length > 6 }       #=> {"dog"=>"canine", "cat"=>"feline
 hash.keep_if{|k, v|  k == 'cat' }           #=> {"cat"=>"feline"}
 </pre>
 
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 h1 = { "a" => 100, "b" => 200 }
 h2 = { "b" => 254, "c" => 300 }
  
@@ -1105,13 +1105,13 @@ h1.merge(h2)                                #=> {"a"=>100, "b"=>254, "c"=>300}
   <slide>
     <hgroup>
       <h2>Hash: <a href="http://ruby-doc.org/core-1.9.3/Hash.html">Usefull Methods</a> </h2>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 {one: 1}.methods
 </pre>
     </hgroup>
     <article>
           
-<pre class="prettyprint shadow console" data-lang="javascript">
+<pre class="prettyprint shadow console" data-lang="ruby">
 [rehash, to_hash, <b>to_a</b>, inspect, to_s, ==, [], hash, eql?, fetch, []=, 
 store, default, default=, default_proc, default_proc=, <b>key</b>, index, size, 
 <b>length</b>, empty?, <b>each_value</b>, <b>each_key</b>, <b>each_pair</b>, each, <b>keys</b>, <b>values</b>, 
@@ -1139,17 +1139,17 @@ private_methods, public_methods, instance_variables, instance_variable_get,...]
       <h2>Range</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 1..10        # creates a range from 1 to 10 inclusive
 1...10       # creates a range from 1 to 10
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 (1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
 (1...10).to_a       # => [1, 2, 3, 4, 5, 6, 7, 8, 9] 
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 ('a'..'l').to_a         
 # => ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
 
@@ -1167,7 +1167,7 @@ private_methods, public_methods, instance_variables, instance_variable_get,...]
       <h2>Range</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 words = 'cab'..'car'
 
 words.min                 # => 'cab'
@@ -1175,13 +1175,13 @@ words.max                 # => 'car'
 words.include?('can')     # => true
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 words.reject {|subrange| subrange > 'caf' }
 
 # => ["cab", "cac", "cad", "cae", "caf"] 
 </pre>
 
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 words.each {|word| puts 'Hello ' + word }
 
 # => Hello cab
@@ -1199,7 +1199,7 @@ words.each {|word| puts 'Hello ' + word }
       <h2>Time</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 time = Time.new
 
 time            # => 2012-10-15 18:09:32 +0300 
@@ -1226,7 +1226,7 @@ time.strftime("%Y-%m-%d %H:%M:%S")  # => "2012-10-15 18:09:32"
       <h2>File</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 File.new("temp.txt", "w")          # => #&lt;File:temp.txt> 
 
 file = File.open("temp.txt", "r")  # => #&lt;File:temp.txt> 
@@ -1256,7 +1256,7 @@ File.join("usr", "alex", "work")      #=> "usr/alex/work"
       <h2>Dir</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 Dir.entries "."
 
 # => [".", "..", ".git", ".gitignore", ".rvmrc", "app", "config", 
@@ -1278,7 +1278,7 @@ Dir.glob("*.*")                #=> ["config.ru", "Gemfile.lock", "README.textile
       <h2>Struct</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint shadow" data-lang="javascript">
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
 Customer = Struct.new(:name, :address, :zip)       #=> Customer
  
 joe = Customer.new("Joe Smith", "123 Maple, Anytown NC", 12345)
@@ -1291,7 +1291,7 @@ joe[0]
 => "Joe Smith"
 </pre>
 
-    <pre class="prettyprint shadow" data-lang="javascript">
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
 Customer = Struct.new(:name, :address) do
   def greeting
     "Hello #{name}!"
@@ -1303,6 +1303,88 @@ Customer.new("Dave", "123 Main").greeting         #=> "Hello Dave!"
 
     </article>
   </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Comments</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint linenums shadow" data-lang="ruby">
+# one line comment
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+=begin
+  Last 
+  slide
+  for today
+=end
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ruby Koans <small>The Path to Enlightenment</small></h2>
+      <h3><a href="http://rubykoans.com">http://rubykoans.com</a></h3>
+    </hgroup>
+    <article>
+
+      Install
+      <pre class="prettyprint console shadow" data-lang="ruby">
+➜  ~  git clone https://github.com/neo/ruby_koans.git
+</pre>
+
+    <pre class="prettyprint console shadow" data-lang="ruby">
+➜  ~  cd ruby_koans
+</pre>
+
+    <pre class="prettyprint console shadow" data-lang="ruby">
+➜  ~  rake gen
+</pre>
+
+    <br>
+    Or just <a href="https://github.com/neo/ruby_koans/blob/master/download/rubykoans.zip?raw=true">Download</a> <br><br>
+    
+    You can even Do it onlile: <a href="http://koans.heroku.com">http://koans.heroku.com</a>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Ruby Koans</h2>
+      <h3>a great way to learn about the Ruby language</h3>
+    </hgroup>
+    <article>
+
+    <pre class="prettyprint console shadow" data-lang="ruby">
+➜  ~  rake
+</pre>
+
+<pre class="prettyprint console shadow" data-lang="ruby">
+AboutAsserts#test_assert_truth has damaged your karma.
+
+The Master says:
+  You have not yet reached enlightenment.
+
+The answers you seek...
+  Failed assertion, no message given.
+
+Please meditate on the following code:
+  /Users/alex/work/all/ruby_koans/koans/about_asserts.rb:10:in `test_assert_truth'
+
+mountains are merely mountains
+your path thus far [X_________________________________________________] 0/280
+</pre>
+    </article>
+  </slide>
+
+
 
 
 
