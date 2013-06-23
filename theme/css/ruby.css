@@ -587,7 +587,7 @@ pre {
   letter-spacing: -1px;
   margin-bottom: 20px;
   width: auto;
-  background-color: #e6e6e6;
+  background-color: #ebebeb;
   left: 0px;
   position: relative;
   -webkit-box-sizing: border-box;
@@ -1000,20 +1000,20 @@ article.smaller q:before, article.smaller q:after {
 .prettyprint .str,
 .prettyprint .atv {
   /* a markup attribute value */
-  color: #009f5d;
+  color: #00762b;
 }
 
 /* line 724, ../scss/ruby.scss */
 .prettyprint .kwd,
 .prettyprint .tag {
   /* a markup tag name */
-  color: #0066cc;
+  color: #0050a0;
 }
 
 /* line 727, ../scss/ruby.scss */
 .prettyprint .com {
   /* a comment */
-  color: #797979;
+  color: #757575;
   font-style: italic;
 }
 
@@ -1041,14 +1041,14 @@ article.smaller q:before, article.smaller q:after {
 
 /* line 745, ../scss/ruby.scss */
 .prettyprint .pln {
-  color: #515151;
+  color: #2a2a2a;
 }
 
 /* line 748, ../scss/ruby.scss */
 .prettyprint ol.linenums {
   z-index: 100;
   list-style-type: decimal;
-  color: #bbb;
+  color: #aaa;
 }
 
 /* line 754, ../scss/ruby.scss */

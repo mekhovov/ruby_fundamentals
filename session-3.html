@@ -63,12 +63,15 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <pre class="prettyprint linenums shadow" data-lang="ruby">
 class BookInStock
+
 end
 </pre>
 
     <pre class="prettyprint linenums shadow" data-lang="ruby">
 book = BookInStock.new
+
 book.class                  # => BookInStock
+
 book.is_a? BookInStock      # => true
 </pre>
 
@@ -523,6 +526,238 @@ fitzgerald_book.tax_for_two hemigway_book
   </slide>
 
 
+  <slide>
+    <hgroup>
+      <h2>Open Classes <small>class in block definition</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+3.times do
+  class C
+    puts "Hello: #{C.object_id}"
+  end
+end
+</pre>
+    
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+# => Hello: 70218127840500
+# => Hello: 70218127840500
+# => Hello: 70218127840500
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Open Classes <small>define/re-define methods dymanically</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class D
+  def x
+    'x'
+  end
+end
+
+class D
+  def y
+    'y'
+  end
+end
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+obj = D.new
+
+puts obj.x      # => x
+puts obj.y      # => y
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Classes <small>and Superclasses</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+"hello".class            # => String
+String.class             # => Class
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+String.superclass        # => Object
+Object.superclass        # => BasicObject
+BasicObject.superclass   # => nil
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+Class.superclass         # => Module
+Module.superclass        # => Object
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Constants <small>namespaicing</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+module M
+  class C
+    X = 'a constant'
+  end
+  C::X    # => 'a constant'
+end
+
+M::C::X   # => 'a constant'
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+module M
+  Y = 'another constant'
+  class C
+    # absolute path
+    ::M::Y   # => 'another constant'
+  end
+end
+
+M.constants  # => [:C, :Y]
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Constants <small>nesting</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+module M
+  class C
+    module M2
+      puts Module.nesting    # => [M::C::M2, M::C, M]
+    end
+  end
+end
+</pre>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Inheritance</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class MyClass
+  def my_method
+    "hello from MOM"
+  end
+end
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class MySubClass &lt; MyClass
+
+end
+</pre>
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+obj = MySubClass.new
+obj.my_method()       # => "hello from MOM"
+</pre>    
+
+
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+MySubClass.ancestors  
+# => [MySubClass, MyClass, Object, Kernel, BasicObject]
+</pre>    
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Methods Inheritance</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class PrintPublication
+  def initialize(title, author)
+    @title, @author = title, author
+  end
+ 
+  def public_method;          "public method called";      end
+ 
+  def call_protected_method;  my_protected_method();       end
+ 
+  def call_private_method;    my_private_method();         end
+ 
+  protected
+    def my_protected_method;  "protected method called";   end
+ 
+  private
+    def my_private_method;    "private method called";     end
+end
+</pre>    
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Class <small>Methods Inheritance</small></h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+class BookInStock &lt; PrintPublication
+  def call_private_and_protected
+    my_protected_method + my_private_method
+  end
+end
+</pre>
+    <pre class="prettyprint linenums shadow" data-lang="ruby">
+book = BookInStock.new("The Great Gatsby", "F. Scott Fitzgerald")
+book.public_method              # => "public method called"
+book.call_protected_method      # => "protected method called"
+book.call_private_method        # => "private method called"
+book.call_private_and_protected # => "protected method calledprivate method called"
+</pre>    
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Method Lookup <small>The rules</small></h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>In <span class="mark_green">singleton</span> class</li>
+        <li>Its <span class="mark_yellow">class</span></li>
+        <li><span class="mark_orange">Modules</span> mixed into its class, in reverse order of inclusion</li>
+        <li>The class's <span class="mark_red">superclass</span></li>
+        <li><span class="mark_blue">Modules</span>  into the superclass, in reverse order of inclusion</li>
+        <li>Likewise, up to <span class="mark_purple">Object</span>  (and its mix-in <span class="mark_purple">Kernel</span>) and <span class="mark_purple">BasicObject</span></li>
+      </ul>
+    </article>
+  </slide>
+
+
+
+
 
 
 
@@ -535,6 +770,7 @@ fitzgerald_book.tax_for_two hemigway_book
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
     </p>
+    <a href="/index.html" style="color:#ddd; float:right">home</a>
   </slide>
 
   <slide class="backdrop"></slide>

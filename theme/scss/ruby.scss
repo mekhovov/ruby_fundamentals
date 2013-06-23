@@ -409,7 +409,7 @@ pre {
   margin-bottom: 20px;
   // width: 106%;
   width: auto;
-  background-color: $gray-1;
+  background-color: #ebebeb; //$gray-1;
   // left: -$slide-left-right-padding;
   left: 0px;
   position: relative;
@@ -718,14 +718,14 @@ article.smaller {
 
 .prettyprint .str, /* string content */
 .prettyprint .atv { /* a markup attribute value */
-  color: $brand-green-secondary2; //rgb(0, 138, 53);
+  color: rgb(0, 118, 43); //$brand-green-secondary2;
 }
 .prettyprint .kwd, /* a keyword */
 .prettyprint .tag { /* a markup tag name */
-  color: rgb(0, 102, 204);
+  color: rgb(0, 80, 160);
 }
 .prettyprint .com { /* a comment */
-  color: $gray-3; //rgb(127, 127, 127);
+  color: rgb(117, 117, 117); //$gray-3; //
   font-style: italic;
 }
 .prettyprint .lit { /* a literal value */
@@ -743,12 +743,12 @@ article.smaller {
   color: $brand-red-secondary2; //rgb(127, 0, 127);
 }
 .prettyprint .pln {
-  color: $gray-4;
+  color: #2a2a2a //$gray-4;
 }
 .prettyprint ol.linenums {
   z-index: 100;
   list-style-type: decimal;
-  color: #bbb;
+  color: #aaa;
 }
 
 .prettyprint ol li:after {
