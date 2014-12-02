@@ -52,3 +52,7 @@ sudo easy_install Jinja2
 sudo easy_install markdown
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mekhovov/ruby_fundamentals/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
